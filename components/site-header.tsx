@@ -177,6 +177,10 @@ export function SiteHeader() {
                 <span>{site.address.street}, {site.address.postalCode} {site.address.city}</span>
                 <span>{site.hours.label}</span>
               </div>
+              <div className="flex gap-8 text-sm text-ivory/75 max-sm:justify-center">
+                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="no-underline">Instagram ↗</a>
+                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="no-underline">Facebook ↗</a>
+              </div>
             </motion.div>
           </motion.div>
         )}

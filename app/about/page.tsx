@@ -46,11 +46,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-label="Unsere Haltung" className="mx-auto max-w-[1240px] px-[var(--gutter)] py-[clamp(88px,13vw,200px)]">
-        <Reveal as="p" className="eyebrow m-0 mb-9 text-graphite">Unsere Haltung</Reveal>
-        <ScrollBrighten className="serif m-0 text-[clamp(30px,3.8vw,58px)] leading-[1.2] tracking-[-0.01em] [text-wrap:pretty]">
-          Unser Ziel ist es, die Bedürfnisse jedes Kunden zu verstehen und die passende Lösung zu finden – <em className="text-graphite">einfühlsam, kompetent</em> und auf höchstem fachlichem Niveau. Für Natürlichkeit, Tragekomfort und ein sicheres Gefühl im Alltag.
-        </ScrollBrighten>
+      <section aria-label="Unsere Haltung" className="wrap grid items-center gap-x-[clamp(48px,6vw,110px)] gap-y-14 py-[clamp(88px,13vw,200px)] [grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr))]">
+        <ImageReveal hairline={false} className="aspect-square w-full max-w-[640px] max-lg:mx-auto">
+          <Image src={img.studioTeam.src} alt={img.studioTeam.alt} fill sizes="(max-width: 1000px) 100vw, 45vw" className="object-cover" placeholder="blur" />
+        </ImageReveal>
+        <div>
+          <Reveal as="p" className="eyebrow m-0 mb-9 text-graphite">Unsere Haltung</Reveal>
+          <ScrollBrighten className="serif m-0 text-[clamp(26px,2.9vw,46px)] leading-[1.25] tracking-[-0.01em] [text-wrap:pretty]">
+            Unser Ziel ist es, die Bedürfnisse jedes Kunden zu verstehen und die passende Lösung zu finden – <em className="text-graphite">einfühlsam, kompetent</em> und auf höchstem fachlichem Niveau. Für Natürlichkeit, Tragekomfort und ein sicheres Gefühl im Alltag.
+          </ScrollBrighten>
+        </div>
       </section>
 
       <section aria-labelledby="weg-h" className="bg-mist">

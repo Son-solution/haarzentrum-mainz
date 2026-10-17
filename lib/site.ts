@@ -23,6 +23,10 @@ export const site = {
   },
   /** Online booking used by the existing site ("Termin Buchen" menu item). */
   bookingUrl: "https://www.planity.com/de-DE/haarzentrum-mainz-55131",
+  social: {
+    instagram: "https://www.instagram.com/haarzentrummainz/",
+    facebook: "https://www.facebook.com/share/1ExUtTQDHo/",
+  },
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=Langenbeckstra%C3%9Fe+2+55131+Mainz",
 } as const;

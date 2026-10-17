@@ -20,6 +20,7 @@ import haarfarben from "@/public/images/extensions-haarfarben.webp";
 import extensions from "@/public/images/extensions-echthaar.webp";
 import schaufenster from "@/public/images/perueckenstudio-schaufenster.webp";
 import anpassung from "@/public/images/perucke-anpassung.webp";
+import studioTeam from "@/public/images/haarzentrum-mainz-studio-team.webp";
 import kundeVorherNachher from "@/public/images/kunde-vorher-nachher.webp";
 import peruckeVorher from "@/public/images/vorher-nachher/perucke-vorher.webp";
 import peruckeNachher from "@/public/images/vorher-nachher/perucke-nachher.webp";
@@ -60,6 +61,7 @@ export const img = {
   extensions: { src: extensions, alt: "Echthaar-Extensions in Braun" },
   schaufenster: { src: schaufenster, alt: "Perücken im Schaufenster eines Perückenstudios" },
   anpassung: { src: anpassung, alt: "Perücke wird individuell angepasst" },
+  studioTeam: { src: studioTeam, alt: "Haarzentrum Mainz – Perückenstudio & Friseur: Friseur, Extensions, Perücken und Haarteile" },
   kundeVorherNachher: { src: kundeVorherNachher, alt: "Kunde vorher und nachher mit Haarsystem" },
 } satisfies Record<string, Photo>;
 

@@ -35,6 +35,7 @@ export function businessJsonLd() {
     email: site.email,
     image: `${site.url}/images/og-haarzentrum-mainz.jpg`,
     logo: `${site.url}/logos/haarzentrum-mainz-logo-dunkel.png`,
+    sameAs: [site.social.instagram, site.social.facebook],
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,

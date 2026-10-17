@@ -42,6 +42,12 @@ export function SiteFooter() {
             <a className="dist text-ivory/78" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
               Online-Termin (Planity) ↗
             </a>
+            <a className="dist text-ivory/78" href={site.social.instagram} target="_blank" rel="noopener noreferrer">
+              Instagram ↗
+            </a>
+            <a className="dist text-ivory/78" href={site.social.facebook} target="_blank" rel="noopener noreferrer">
+              Facebook ↗
+            </a>
           </div>
           <nav aria-label="Seiten" className="flex flex-col gap-1.5">
             <h2 className="eyebrow m-0 mb-1 text-silver">Seiten</h2>

@@ -30,6 +30,14 @@ import toupetNachher from "@/public/images/vorher-nachher/toupet-nachher.webp";
 import logoLight from "@/public/logos/haarzentrum-mainz-logo-hell.png";
 import logoIcon from "@/public/logos/haarzentrum-mainz-icon.png";
 import dizert from "@/public/logos/dizert-zertifikat-126-sgb-v.jpg";
+import pDening from "@/public/logos/partner/dening-hair.svg";
+import pEllenWille from "@/public/logos/partner/ellen-wille.svg";
+import pBergmann from "@/public/logos/partner/bergmann.png";
+import pGfh from "@/public/logos/partner/gfh.png";
+import pAderans from "@/public/logos/partner/aderans.png";
+import pModess from "@/public/logos/partner/modess.png";
+import pExen from "@/public/logos/partner/exen-hair.svg";
+import pGiselaMayer from "@/public/logos/partner/gisela-mayer.png";
 import type { StaticImageData } from "next/image";
 
 export type Photo = { src: StaticImageData; alt: string };
@@ -77,3 +85,18 @@ export const logo = { light: logoLight, icon: logoIcon };
 
 /** Quality certificate (DIZert) – required for billing medical wigs with health insurers. */
 export const certificate = { src: dizert, alt: "DIZert – zertifiziert gemäß § 126 SGB V" };
+
+/**
+ * Partner brands (official logos from the partners' websites). `h` is the display height in px,
+ * tuned per logo so wide wordmarks and compact emblems look optically equal.
+ */
+export const partners = [
+  { name: "Dening Hair Company", src: pDening, h: 38 },
+  { name: "Ellen Wille – The Hair Company", src: pEllenWille, h: 26 },
+  { name: "Bergmann Haare", src: pBergmann, h: 62 },
+  { name: "gfh – Hair for Wear", src: pGfh, h: 50 },
+  { name: "Aderans", src: pAderans, h: 38 },
+  { name: "Gisela Mayer", src: pGiselaMayer, h: 50 },
+  { name: "Modess", src: pModess, h: 66 },
+  { name: "Exen Hair", src: pExen, h: 66 },
+];

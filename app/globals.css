@@ -368,6 +368,31 @@
       transform: translateX(-50%);
     }
   }
+  /* Partner logos: endless monochrome slider with soft edge fades */
+  .logo-slider {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+  .logo-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 38s linear infinite;
+  }
+  .logo-slider:hover .logo-track {
+    animation-play-state: paused;
+  }
+  .partner-logo {
+    filter: brightness(0);
+    opacity: 0.55;
+    transition: opacity 0.5s;
+  }
+  @media (hover: hover) {
+    .logo-row li:hover .partner-logo {
+      opacity: 1;
+    }
+  }
+
   .spin {
     animation: spin 34s linear infinite;
   }
@@ -483,7 +508,24 @@
   }
   .marquee,
   .spin,
-  .scrollcue::after {
+  .scrollcue::after,
+  .logo-track {
     animation: none !important;
+  }
+  /* Without motion the partner logos become a static, centred grid. */
+  .logo-slider {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .logo-track {
+    width: auto;
+    justify-content: center;
+  }
+  .logo-track > .logo-row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .logo-track > .logo-row[aria-hidden] {
+    display: none;
   }
 }

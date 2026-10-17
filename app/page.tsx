@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BeforeAfter } from "@/components/before-after";
 import { Marquee, RotatingBadge } from "@/components/decor";
 import { Curtain, DrawLine, FadeIn, ImageReveal, KenBurns, LineReveal, Parallax, Reveal } from "@/components/motion";
+import { Partners } from "@/components/partners";
 import { Testimonials } from "@/components/testimonials";
 import { ButtonLink, TextLink } from "@/components/ui";
 import { specials } from "@/lib/content";
@@ -317,6 +318,9 @@ export default function HomePage() {
         </Reveal>
         <Testimonials />
       </section>
+
+      {/* ───── Partner ───── */}
+      <Partners />
 
       {/* ───── Abschluss-CTA ───── */}
       <section aria-labelledby="cta-h" className="relative overflow-hidden bg-charcoal text-ivory">

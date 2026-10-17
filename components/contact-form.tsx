@@ -91,8 +91,8 @@ export function ContactForm() {
           transition={{ duration: 1.1, ease: EASE_LUX }}
           role="status"
         >
-          <span className="serif text-[72px] italic leading-none text-graphite">Danke.</span>
-          <p className="serif m-0 text-[30px] leading-[1.2]">Ihre Anfrage für „{sentService}“ ist bei uns eingegangen.</p>
+          <span className="serif text-[56px] italic sm:text-[72px] leading-none text-graphite">Danke.</span>
+          <p className="serif m-0 text-[24px] leading-[1.2] sm:text-[30px]">Ihre Anfrage für „{sentService}“ ist bei uns eingegangen.</p>
           <p className="m-0 text-ink-2">Wir melden uns schnellstmöglich bei Ihnen, um Ihren Termin zu bestätigen.</p>
           <button type="button" className="btn btn-dark self-start" onClick={() => setStatus("idle")}>
             Neue Anfrage
@@ -205,7 +205,7 @@ export function ContactForm() {
             )}
           </AnimatePresence>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="cta-row gap-4">
             <button className="btn btn-dark" type="submit" disabled={status === "sending"}>
               {status === "sending" ? "Wird gesendet …" : "Anfrage senden"} <span className="arr" aria-hidden="true">→</span>
             </button>

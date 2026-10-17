@@ -75,7 +75,7 @@ export function SiteHeader() {
               alt="Haarzentrum Mainz – Perückenstudio & Friseur"
               className="h-[clamp(34px,3.4vw,48px)] w-auto"
               sizes="320px"
-              preload
+              loading="eager"
             />
           </Link>
           <nav aria-label="Hauptnavigation" className="hidden items-center gap-[34px] min-[1061px]:flex">
@@ -95,7 +95,7 @@ export function SiteHeader() {
               href={site.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost-light hidden min-[621px]:inline-flex"
+              className="btn btn-ghost-light btn-keep hidden min-[621px]:inline-flex"
               style={{ minHeight: 46, padding: "0 24px" }}
             >
               Termin buchen
@@ -141,7 +141,7 @@ export function SiteHeader() {
                 <X size={18} strokeWidth={1.2} aria-hidden="true" />
               </button>
             </div>
-            <nav aria-label="Mobile Navigation" className="mt-14 flex flex-col gap-1.5">
+            <nav aria-label="Mobile Navigation" className="mt-10 flex flex-col gap-1.5 sm:mt-14">
               {mainNav.map((item, i) => (
                 <motion.div
                   key={item.href}
@@ -172,7 +172,7 @@ export function SiteHeader() {
               <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-silver self-start">
                 Termin online buchen <span className="arr" aria-hidden="true">↗</span>
               </a>
-              <div className="flex flex-wrap gap-x-12 gap-y-5 text-sm text-ivory/75">
+              <div className="flex flex-wrap gap-x-12 gap-y-5 text-sm text-ivory/75 max-sm:flex-col max-sm:items-center max-sm:gap-y-2 max-sm:text-center">
                 <a href={site.phoneHref} className="no-underline">{site.phone}</a>
                 <span>{site.address.street}, {site.address.postalCode} {site.address.city}</span>
                 <span>{site.hours.label}</span>

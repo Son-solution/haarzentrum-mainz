@@ -21,7 +21,7 @@ export function Testimonials() {
             exit={{ opacity: 0, y: -14 }}
             transition={{ duration: 0.9, ease: EASE_LUX }}
           >
-            <blockquote className="serif m-0 text-[clamp(32px,4.4vw,66px)] leading-[1.12] tracking-[-0.01em] [text-wrap:balance]">
+            <blockquote className="serif m-0 text-[clamp(26px,4.4vw,66px)] leading-[1.12] tracking-[-0.01em] [text-wrap:balance]">
               <span className="text-silver">„</span>
               {t.text}
               <span className="text-silver">“</span>

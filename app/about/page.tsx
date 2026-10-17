@@ -28,17 +28,17 @@ const advantages = [
 export default function AboutPage() {
   return (
     <>
-      <section aria-label="Einleitung" className="grid min-h-[820px] bg-charcoal text-ivory [grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr))]">
-        <div className="flex flex-col justify-end gap-[30px] px-[clamp(20px,5vw,80px)] pb-[72px] pt-[200px]">
+      <section aria-label="Einleitung" className="grid bg-charcoal min-[1040px]:min-h-[820px] text-ivory [grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr))]">
+        <div className="flex flex-col justify-end gap-[30px] px-[clamp(20px,5vw,80px)] pb-[clamp(48px,7vw,72px)] pt-[clamp(128px,18vw,200px)]">
           <FadeIn delay={0.35}><h1 className="eyebrow m-0 text-silver">Über uns</h1></FadeIn>
-          <p className="serif m-0 text-[clamp(42px,5.4vw,96px)] leading-[0.96] tracking-[-0.02em]">
+          <p className="serif m-0 text-[clamp(34px,9vw,72px)] min-[1040px]:text-[clamp(44px,4.2vw,84px)] leading-[0.96] tracking-[-0.02em]">
             <LineReveal lines={["Ihr professionelles", "Haarzentrum", <em key="s" className="sheen">in Mainz.</em>]} />
           </p>
           <FadeIn as="p" delay={0.95} className="m-0 max-w-[480px] text-ivory/80">
             Gegründet, um Menschen mit Haarausfall professionelle und diskrete Lösungen rund um medizinische Perücken und Zweithaar anzubieten.
           </FadeIn>
         </div>
-        <div className="frame relative min-h-[520px]">
+        <div className="frame relative min-h-[clamp(340px,80vw,520px)]">
           <KenBurns>
             <Image src={img.schaufenster.src} alt={img.schaufenster.alt} fill preload sizes="(max-width: 1040px) 100vw, 50vw" className="object-cover object-[35%_40%]" placeholder="blur" />
           </KenBurns>
@@ -46,7 +46,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section aria-label="Unsere Haltung" className="mx-auto max-w-[1240px] px-[var(--gutter)] py-[clamp(110px,13vw,200px)]">
+      <section aria-label="Unsere Haltung" className="mx-auto max-w-[1240px] px-[var(--gutter)] py-[clamp(88px,13vw,200px)]">
         <Reveal as="p" className="eyebrow m-0 mb-9 text-graphite">Unsere Haltung</Reveal>
         <ScrollBrighten className="serif m-0 text-[clamp(30px,3.8vw,58px)] leading-[1.2] tracking-[-0.01em] [text-wrap:pretty]">
           Unser Ziel ist es, die Bedürfnisse jedes Kunden zu verstehen und die passende Lösung zu finden – <em className="text-graphite">einfühlsam, kompetent</em> und auf höchstem fachlichem Niveau. Für Natürlichkeit, Tragekomfort und ein sicheres Gefühl im Alltag.
@@ -57,7 +57,7 @@ export default function AboutPage() {
         <div className="wrap section-y grid items-center gap-x-[110px] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr))]">
           <div className="flex flex-col gap-[26px]">
             <Reveal as="p" className="eyebrow m-0 text-graphite">Persönlich begleitet</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(40px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(34px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
               <span id="weg-h">Von der ersten Beratung <em>bis zur Anpassung.</em></span>
             </Reveal>
             <ul className="m-0 list-none p-0">
@@ -73,7 +73,7 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="vorteile-h" className="wrap section-y">
-        <Reveal as="h2" className="serif m-0 mb-[clamp(48px,6vw,80px)] text-[clamp(44px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
+        <Reveal as="h2" className="serif m-0 mb-[clamp(48px,6vw,80px)] text-[clamp(38px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
           <span id="vorteile-h">Unsere einzigartigen <em className="text-graphite">Vorteile</em></span>
         </Reveal>
         <div className="grid border-t border-charcoal/20 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
@@ -81,10 +81,10 @@ export default function AboutPage() {
             <Reveal
               key={n}
               delay={i * 0.1}
-              className="group flex flex-col gap-[18px] border-b border-charcoal/20 px-8 pb-14 pt-11 transition-colors duration-[800ms] [transition-timing-function:var(--ease-lux)] hover:bg-charcoal hover:text-ivory"
+              className="group flex flex-col gap-[18px] border-b border-charcoal/20 px-6 pb-12 pt-10 sm:px-8 sm:pb-14 sm:pt-11 transition-colors duration-[800ms] [transition-timing-function:var(--ease-lux)] hover:bg-charcoal hover:text-ivory"
             >
               <span className="serif text-[64px] italic leading-none text-silver transition-transform duration-1000 [transition-timing-function:var(--ease-lux)] group-hover:-translate-y-2">{n}</span>
-              <h3 className="serif m-0 text-[32px] font-normal">{h}</h3>
+              <h3 className="serif m-0 text-[28px] font-normal sm:text-[32px]">{h}</h3>
               <p className="m-0 opacity-80">{d}</p>
             </Reveal>
           ))}
@@ -92,13 +92,13 @@ export default function AboutPage() {
       </section>
 
       <section aria-labelledby="mission-h" className="bg-charcoal text-ivory">
-        <div className="wrap flex flex-col items-center gap-9 py-[clamp(110px,13vw,200px)] text-center">
+        <div className="wrap flex flex-col items-center gap-9 py-[clamp(88px,13vw,200px)] text-center">
           <Reveal as="p" className="eyebrow m-0 text-silver">Unsere Mission</Reveal>
           <Reveal as="h2" className="serif m-0 max-w-[1150px] text-[clamp(38px,5.4vw,86px)] font-normal leading-[1.04] tracking-[-0.015em] [text-wrap:balance]">
             <span id="mission-h">Menschen jeden Alters zu mehr <em className="text-silver">Selbstbewusstsein, Lebensqualität</em> und einem natürlichen Erscheinungsbild verhelfen.</span>
           </Reveal>
-          <Reveal as="p" delay={0.1} className="serif m-0 mt-6 text-[26px] italic text-ivory/80">Bereit für einen neuen Look?</Reveal>
-          <Reveal delay={0.2} className="flex flex-wrap justify-center gap-3.5">
+          <Reveal as="p" delay={0.1} className="serif m-0 mt-6 text-[22px] italic sm:text-[26px] text-ivory/80">Bereit für einen neuen Look?</Reveal>
+          <Reveal delay={0.2} className="cta-row justify-center">
             <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
             <ButtonLink href="/preislist/" variant="ghost-light" arrow={false}>Preisliste</ButtonLink>
           </Reveal>

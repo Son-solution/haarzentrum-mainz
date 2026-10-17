@@ -43,7 +43,7 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
 
   return (
     <>
-      <section aria-label="Einleitung" className="relative flex min-h-[780px] overflow-hidden bg-charcoal text-ivory">
+      <section aria-label="Einleitung" className="relative flex min-h-[clamp(600px,100vw,780px)] overflow-hidden bg-charcoal text-ivory">
         <div className="frame absolute inset-0">
           <KenBurns className="absolute inset-0 opacity-55">
             <Image src={img.heroBlonde.src} alt="" fill preload sizes="100vw" className="mono object-cover object-[60%_28%]" placeholder="blur" />
@@ -51,21 +51,21 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
           <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(0deg,#17191C_5%,rgba(23,25,28,.35)_70%)]" />
           <Curtain />
         </div>
-        <div className="wrap relative z-[3] flex w-full flex-col justify-end gap-7 pb-[72px] pt-[200px]">
+        <div className="wrap relative z-[3] flex w-full flex-col justify-end gap-7 pb-[clamp(48px,7vw,72px)] pt-[clamp(128px,18vw,200px)]">
           <FadeIn delay={0.35}><p className="eyebrow m-0 text-silver">Perückenstudio &amp; Friseur · {d.label}</p></FadeIn>
-          <h1 className="serif m-0 text-[clamp(50px,8.4vw,136px)] font-normal leading-[0.94] tracking-[-0.025em]">
-            <LineReveal lines={["Haarzentrum", <>für <em className="sheen">{d.label}</em></>]} />
+          <h1 className="serif m-0 text-[clamp(40px,8.4vw,136px)] font-normal leading-[0.94] tracking-[-0.025em]">
+            <LineReveal lines={["Haarzentrum", <span key="s">für <em className="sheen">{d.label}</em></span>]} />
           </h1>
           <div className="flex flex-wrap items-end justify-between gap-7">
             <FadeIn as="p" delay={0.95} className="m-0 max-w-[500px] text-ivory/80">
               Perücken, Haarteile, Zweithaar, Haarschnitt &amp; Haarverlängerung – für Kundinnen und Kunden aus {d.label}, in unserem Studio in der {site.address.street}, {site.address.postalCode} {site.address.city}.
             </FadeIn>
-            <FadeIn delay={1.15}><ButtonLink href="/contact/" variant="silver">Kostenlose Beratung</ButtonLink></FadeIn>
+            <FadeIn delay={1.15} className="cta-row"><ButtonLink href="/contact/" variant="silver">Kostenlose Beratung</ButtonLink></FadeIn>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="w-h" className="mx-auto flex max-w-[1240px] flex-col gap-[30px] px-[var(--gutter)] py-[clamp(96px,11vw,160px)]">
+      <section aria-labelledby="w-h" className="mx-auto flex max-w-[1240px] flex-col gap-[30px] px-[var(--gutter)] py-[clamp(72px,11vw,160px)]">
         <Reveal as="p" className="eyebrow m-0 text-graphite">Willkommen</Reveal>
         <Reveal as="h2" className="serif m-0 text-[clamp(36px,4.2vw,64px)] font-normal leading-[1.08] tracking-[-0.01em] [text-wrap:balance]">
           <span id="w-h">Spezialisiert auf individuelle Lösungen bei Haarausfall – <em className="text-graphite">krankheitsbedingt, hormonell oder genetisch.</em></span>
@@ -97,7 +97,7 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
 
       <section aria-labelledby="p-h" className="wrap section-y grid gap-x-[120px] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))]">
         <div className="flex flex-col gap-[26px]">
-          <Reveal as="h2" className="serif m-0 text-[clamp(44px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
+          <Reveal as="h2" className="serif m-0 text-[clamp(38px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
             <span id="p-h">Zweithaar<br /><em>Preisliste</em></span>
           </Reveal>
           <Reveal delay={0.1}><ButtonLink href="/preislist/" variant="dark">Alle Preise</ButtonLink></Reveal>
@@ -106,8 +106,8 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
           <dl className="m-0">
             {zweithaarPreise.map(([n, p]) => (
               <div key={n} className="price-row flex items-baseline gap-4 border-b border-charcoal/16 py-[22px]">
-                <dt className="serif flex-1 text-2xl">{n}</dt>
-                <dd className="serif m-0 text-[26px]">{p}</dd>
+                <dt className="serif flex-1 text-[22px] sm:text-2xl">{n}</dt>
+                <dd className="serif m-0 whitespace-nowrap text-[22px] sm:text-[26px]">{p}</dd>
               </div>
             ))}
           </dl>

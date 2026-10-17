@@ -24,9 +24,9 @@ export default function FaqPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(faqJsonLd) }} />
       <section aria-label="Einleitung" className="bg-charcoal text-ivory">
-        <div className="wrap flex flex-col gap-7 pb-[88px] pt-[200px]">
+        <div className="wrap flex flex-col gap-7 pb-[clamp(56px,8vw,88px)] pt-[clamp(128px,18vw,200px)]">
           <FadeIn delay={0.35}><h1 className="eyebrow m-0 text-silver">FAQ · Häufige Fragen</h1></FadeIn>
-          <p className="serif m-0 text-[clamp(56px,9vw,144px)] leading-[0.94] tracking-[-0.025em]">
+          <p className="serif m-0 text-[clamp(48px,11vw,144px)] leading-[0.94] tracking-[-0.025em]">
             <LineReveal lines={["Gut zu", <em key="s" className="sheen">wissen.</em>]} />
           </p>
         </div>

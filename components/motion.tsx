@@ -76,7 +76,7 @@ export function LineReveal({ lines, baseDelay = 0.35, step = 0.15 }: { lines: Re
       {lines.map((line, i) => (
         <span key={i} className="block overflow-hidden pb-[0.1em] -mb-[0.1em]">
           <motion.span
-            className="inline-block"
+            className="inline-block max-w-full [overflow-wrap:break-word]"
             initial={{ y: "112%" }}
             animate={{ y: 0 }}
             transition={{ duration: 1.6, ease: EASE_LUX, delay: baseDelay + i * step }}

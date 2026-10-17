@@ -35,34 +35,34 @@ const specialties = [
 const damenPrices = [
   ["Waschen | Schneiden | Föhnen", "52 €", "65 €", "78 €"],
   ["Waschen | Föhnen", "34 €", "40 €", "55 €"],
-  ["Cut & Go (ohne Föhnen)", "40 €", "48 €", "58 €"],
+  ["Cut & Go (ohne Föhnen)", "40 €", "–", "–"],
 ];
 
 export default function HaarschnittPage() {
   return (
     <>
       <section aria-label="Einleitung" className="relative overflow-hidden bg-charcoal text-ivory">
-        <div className="wrap flex flex-col gap-8 pt-[190px]">
+        <div className="wrap flex flex-col gap-8 pt-[clamp(128px,18vw,190px)]">
           <FadeIn delay={0.35}>
             <h1 className="eyebrow m-0 text-silver">Ihr Spezialist für professionelle Haarschnitte in Mainz</h1>
           </FadeIn>
-          <p className="serif m-0 text-[clamp(54px,10vw,160px)] font-normal leading-[0.92] tracking-[-0.025em]">
+          <p className="serif m-0 text-[clamp(44px,11vw,160px)] font-normal leading-[0.92] tracking-[-0.025em]">
             <LineReveal lines={["Schnitt.", <em key="s" className="sheen">Farbe. Styling.</em>]} />
           </p>
           <div className="flex flex-wrap items-end justify-between gap-7 pb-14">
             <FadeIn as="p" delay={0.95} className="m-0 max-w-[500px] text-[17px] text-ivory/80">
               Individuelle Haarschnitte und modernes Styling für Damen, Herren und Kinder – abgestimmt auf Haarstruktur, Gesichtsform und Ihren persönlichen Stil.
             </FadeIn>
-            <FadeIn delay={1.15}>
+            <FadeIn delay={1.15} className="cta-row">
               <ButtonLink href="/contact/" variant="silver">Termin vereinbaren</ButtonLink>
             </FadeIn>
           </div>
         </div>
-        <div className="grid gap-1 px-1 pb-1 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]">
+        <div className="grid grid-cols-1 gap-1 px-1 pb-1 min-[600px]:grid-cols-3">
           {heroTrio.map((h, i) => (
-            <div key={i} className="frame relative aspect-[3/4] max-h-[560px]">
+            <div key={i} className="frame relative aspect-[4/3] max-h-[560px] min-[600px]:aspect-[3/4]">
               <KenBurns>
-                <Image src={h.photo.src} alt={h.photo.alt} fill preload={i === 0} sizes="(max-width: 900px) 100vw, 33vw" className="object-cover" style={{ objectPosition: h.pos }} placeholder="blur" />
+                <Image src={h.photo.src} alt={h.photo.alt} fill preload={i === 0} sizes="(max-width: 599px) 100vw, 33vw" className="object-cover" style={{ objectPosition: h.pos }} placeholder="blur" />
               </KenBurns>
               <Curtain delay={0.15 + i * 0.15} />
             </div>
@@ -71,7 +71,7 @@ export default function HaarschnittPage() {
       </section>
 
       <section aria-labelledby="fuer-h" className="wrap section-y">
-        <Reveal as="h2" className="serif m-0 mb-[clamp(48px,6vw,88px)] text-[clamp(44px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
+        <Reveal as="h2" className="serif m-0 mb-[clamp(48px,6vw,88px)] text-[clamp(38px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
           <span id="fuer-h">Für jeden <em className="text-graphite">Typ.</em></span>
         </Reveal>
         <div className="grid gap-x-12 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
@@ -96,7 +96,7 @@ export default function HaarschnittPage() {
           </ImageReveal>
           <div className="flex flex-col gap-[26px]">
             <Reveal as="p" className="eyebrow m-0 text-graphite">Unsere Spezialitäten</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(40px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(34px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
               <span id="spez-h">Styling <em>&amp;</em> Pflege</span>
             </Reveal>
             <ul className="m-0 list-none p-0">
@@ -107,8 +107,8 @@ export default function HaarschnittPage() {
                 </Reveal>
               ))}
             </ul>
-            <Reveal delay={0.2} className="inline-flex items-center gap-3.5 self-start rounded-full border border-charcoal/25 px-[22px] py-3.5 text-sm">
-              <span className="serif text-[22px] italic text-graphite">10 %</span>auf alle Leistungen mit gültigem Studentenausweis
+            <Reveal delay={0.2} className="inline-flex items-center gap-3.5 self-start rounded-full border border-charcoal/25 max-sm:rounded-3xl px-[22px] py-3.5 text-sm">
+              <span className="serif whitespace-nowrap text-[22px] italic text-graphite">10 %</span>auf alle Leistungen mit gültigem Studentenausweis
             </Reveal>
           </div>
         </div>
@@ -117,24 +117,24 @@ export default function HaarschnittPage() {
       <section aria-labelledby="hp-h" className="wrap section-y grid gap-x-[120px] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))]">
         <div className="flex flex-col gap-[26px]">
           <Reveal as="p" className="eyebrow m-0 text-graphite">Damen – Schnitt &amp; Styling</Reveal>
-          <Reveal as="h2" className="serif m-0 text-[clamp(44px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
+          <Reveal as="h2" className="serif m-0 text-[clamp(38px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
             <span id="hp-h">Ausgewählte<br /><em>Preise</em></span>
           </Reveal>
           <Reveal delay={0.1}><TextLink href="/preislist/">Vollständige Preisliste</TextLink></Reveal>
         </div>
         <Reveal delay={0.1} className="overflow-x-auto">
-          <table className="w-full min-w-[420px] border-collapse">
+          <table className="w-full border-collapse">
             <thead>
-              <tr className="eyebrow border-b border-charcoal/30 text-graphite">
+              <tr className="eyebrow border-b border-charcoal/30 text-graphite max-sm:tracking-[0.08em]">
                 <th className="pb-3 text-left font-medium"><span className="sr-only-focusable">Leistung</span></th>
-                <th className="w-[72px] pb-3 text-right font-medium">Kurz</th>
-                <th className="w-[72px] pb-3 text-right font-medium">Mittel</th>
-                <th className="w-[72px] pb-3 text-right font-medium">Lang</th>
+                <th className="w-[52px] pb-3 sm:w-[72px] text-right font-medium">Kurz</th>
+                <th className="w-[52px] pb-3 sm:w-[72px] text-right font-medium">Mittel</th>
+                <th className="w-[52px] pb-3 sm:w-[72px] text-right font-medium">Lang</th>
               </tr>
             </thead>
             <tbody>
               {damenPrices.map(([n, ...p]) => (
-                <tr key={n} className="price-row serif border-b border-charcoal/16 text-[22px]">
+                <tr key={n} className="price-row serif border-b border-charcoal/16 text-[18px] sm:text-[22px]">
                   <th scope="row" className="py-[22px] text-left font-normal">{n}</th>
                   {p.map((v, i) => <td key={i} className="py-[22px] text-right">{v}</td>)}
                 </tr>
@@ -148,7 +148,7 @@ export default function HaarschnittPage() {
         <div className="wrap section-y grid items-center gap-x-[110px] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))]">
           <div className="flex flex-col gap-7">
             <Reveal as="p" className="eyebrow m-0 text-silver">Besuchen Sie uns</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(40px,5vw,80px)] font-normal leading-[1.02]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(28px,8.5vw,64px)] font-normal leading-[1.02] lg:text-[clamp(36px,3.6vw,72px)]">
               <span id="besuch-h"><span className="whitespace-nowrap">{site.address.street}</span><br /><em className="text-silver">{site.address.postalCode} {site.address.city}</em></span>
             </Reveal>
             <Reveal delay={0.1} className="grid gap-6 text-ivory/78 [grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]">

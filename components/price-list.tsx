@@ -10,7 +10,7 @@ export function PriceList() {
   const groups = priceGroups.filter((g) => cat === "Alle" || g.cat === cat);
   return (
     <div>
-      <div role="group" aria-label="Kategorie filtern" className="mb-[clamp(48px,6vw,80px)] flex flex-wrap gap-2.5">
+      <div role="group" aria-label="Kategorie filtern" className="mb-[clamp(48px,6vw,80px)] flex flex-wrap gap-2.5 max-lg:justify-center">
         {priceCategories.map((c) => {
           const on = c === cat;
           return (
@@ -50,10 +50,10 @@ export function PriceList() {
                 {g.items.map((it) => (
                   <div key={it.n} className="price-row flex items-baseline gap-5 border-b border-charcoal/16 py-5">
                     <dt className="min-w-0 flex-1">
-                      <span className="serif block text-[23px] leading-[1.25]">{it.n}</span>
+                      <span className="serif block text-[20px] leading-[1.25] sm:text-[23px]">{it.n}</span>
                       {it.d && <span className="text-sm text-graphite">{it.d}</span>}
                     </dt>
-                    <dd className="serif m-0 whitespace-nowrap text-right text-[23px]">{it.p}</dd>
+                    <dd className="serif m-0 whitespace-nowrap text-right text-[20px] sm:text-[23px]">{it.p}</dd>
                   </div>
                 ))}
               </dl>

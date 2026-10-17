@@ -29,7 +29,7 @@ export const site = {
 
 export const mainNav = [
   { href: "/", label: "Perücken" },
-  { href: "/haarschnitt/", label: "Haarschnitt" },
+  { href: "/haarschnitt/", label: "Friseur" },
   { href: "/preislist/", label: "Preisliste" },
   { href: "/about/", label: "Über uns" },
   { href: "/faq/", label: "FAQ" },

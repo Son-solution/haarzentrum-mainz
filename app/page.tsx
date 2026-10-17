@@ -6,7 +6,7 @@ import { Curtain, DrawLine, FadeIn, ImageReveal, KenBurns, LineReveal, Parallax,
 import { Testimonials } from "@/components/testimonials";
 import { ButtonLink, TextLink } from "@/components/ui";
 import { specials } from "@/lib/content";
-import { img } from "@/lib/images";
+import { certificate, img } from "@/lib/images";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -76,18 +76,27 @@ export default function HomePage() {
           />
           <Curtain />
         </div>
-        <div className="wrap relative z-[3] flex w-full flex-1 flex-col justify-end gap-9 pb-16 pt-[200px]">
+        <div className="wrap relative z-[3] flex w-full flex-1 flex-col justify-end gap-9 pb-16 pt-[clamp(128px,18vw,200px)]">
+          <FadeIn delay={0.25} className="self-start">
+            <Image
+              src={certificate.src}
+              alt={certificate.alt}
+              sizes="150px"
+              loading="eager"
+              className="block h-[54px] w-auto rounded-lg bg-white px-2.5 py-1.5 shadow-[0_10px_30px_rgba(0,0,0,.28)] sm:h-[66px]"
+            />
+          </FadeIn>
           <FadeIn as="div" delay={0.35}>
             <h1 className="eyebrow m-0 text-silver">Haarzentrum Mainz – Ihr Friseur &amp; Perückenstudio in Mainz</h1>
           </FadeIn>
-          <p className="serif m-0 text-[clamp(54px,9.4vw,148px)] font-normal leading-[0.94] tracking-[-0.02em]">
+          <p className="serif m-0 text-[clamp(40px,9.4vw,148px)] font-normal leading-[0.94] tracking-[-0.02em]">
             <LineReveal lines={["Hochwertige", "Perücken –", <em key="s" className="sheen">natürlich schön</em>]} />
           </p>
           <div className="flex flex-wrap items-end justify-between gap-8">
             <FadeIn as="p" delay={0.95} className="m-0 max-w-[440px] text-[17px] leading-[1.7] text-ivory/80">
               Ob Echthaar oder Kunsthaar: Wir finden gemeinsam mit Ihnen die passende Lösung – mit Erfahrung, Diskretion und Liebe zum Detail.
             </FadeIn>
-            <FadeIn delay={1.15} className="flex flex-wrap gap-3.5">
+            <FadeIn delay={1.15} className="cta-row">
               <ButtonLink href="/contact/" variant="silver">Kostenlose Beratung</ButtonLink>
               <ButtonLink href="#leistungen" variant="ghost-light" arrow={false}>Perücken entdecken</ButtonLink>
             </FadeIn>
@@ -117,11 +126,11 @@ export default function HomePage() {
             <Reveal delay={0.2} className="frame absolute bottom-0 right-0 aspect-square w-[46%] rounded-full border-[10px] border-ivory">
               <Image src={img.topper.src} alt={img.topper.alt} fill sizes="(max-width: 900px) 46vw, 20vw" className="object-cover" placeholder="blur" />
             </Reveal>
-            <RotatingBadge className="bottom-[46%] right-[30%]" />
+            <RotatingBadge className="bottom-[46%] right-[30%] max-sm:scale-[0.72]" />
           </div>
           <div className="flex flex-col gap-7">
             <Reveal as="p" className="eyebrow m-0 text-graphite">Willkommen im Haarzentrum Mainz</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(40px,4.6vw,72px)] font-normal leading-[1.04] tracking-[-0.015em] [text-wrap:balance]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(34px,4.6vw,72px)] font-normal leading-[1.04] tracking-[-0.015em] [text-wrap:balance]">
               <span id="willkommen">Ihr Experte für Perücken, Haarteile <em className="text-graphite">&amp; Zweithaar</em></span>
             </Reveal>
             <DrawLine />
@@ -131,7 +140,7 @@ export default function HomePage() {
             <Reveal as="p" delay={0.15} className="m-0 text-ink-3">
               Wir begleiten Sie persönlich – von der ersten Beratung über die Auswahl bis hin zur optimalen Anpassung. Selbstverständlich unterstützen wir Sie auch bei der Abrechnung mit Ihrer Krankenkasse.
             </Reveal>
-            <Reveal delay={0.2} className="mt-2 flex flex-wrap items-center gap-3.5">
+            <Reveal delay={0.2} className="cta-row mt-2">
               <ButtonLink href="/contact/" variant="dark">Termin vereinbaren</ButtonLink>
               <TextLink href="/about/" className="py-4">Über uns</TextLink>
             </Reveal>
@@ -143,7 +152,7 @@ export default function HomePage() {
       <section id="leistungen" aria-labelledby="leistungen-h" className="scroll-mt-20 bg-mist">
         <div className="wrap section-y">
           <div className="mb-[clamp(56px,7vw,96px)] flex flex-wrap items-end justify-between gap-6">
-            <Reveal as="h2" className="serif m-0 text-[clamp(44px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(38px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
               <span id="leistungen-h">Unsere<br /><em>Leistungen</em></span>
             </Reveal>
             <Reveal as="p" delay={0.1} className="m-0 max-w-[380px] text-ink-3">
@@ -184,7 +193,7 @@ export default function HomePage() {
         <div className="wrap section-y grid items-start gap-x-24 gap-y-12 [grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr))]">
           <div className="flex flex-col gap-7">
             <Reveal as="p" className="eyebrow m-0 text-silver">Unsere Spezialgebiete</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(40px,5vw,80px)] font-normal leading-[1.02] tracking-[-0.015em]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(34px,5vw,80px)] font-normal leading-[1.02] tracking-[-0.015em]">
               <span id="spezial-h">Erfahrung, Diskretion <em className="text-silver">und Liebe zum Detail.</em></span>
             </Reveal>
             <Reveal as="p" delay={0.1} className="m-0 max-w-[420px] text-ivory/72">
@@ -204,14 +213,14 @@ export default function HomePage() {
 
       {/* ───── Für Herren ───── */}
       <section aria-labelledby="herren-h" className="grid bg-ivory [grid-template-columns:repeat(auto-fit,minmax(min(520px,100%),1fr))]">
-        <div className="frame relative min-h-[520px] md:min-h-[680px]">
+        <div className="frame relative min-h-[clamp(380px,90vw,520px)] md:min-h-[680px]">
           <Parallax>
             <Image src={img.studioHerren.src} alt={img.studioHerren.alt} fill sizes="(max-width: 1040px) 100vw, 50vw" className="object-cover object-[48%_55%]" placeholder="blur" />
           </Parallax>
         </div>
         <div className="flex flex-col justify-center gap-[30px] px-[clamp(20px,6vw,110px)] py-[clamp(72px,9vw,140px)]">
           <Reveal as="p" className="eyebrow m-0 text-graphite">Für Herren</Reveal>
-          <Reveal as="h2" className="serif m-0 text-[clamp(40px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
+          <Reveal as="h2" className="serif m-0 text-[clamp(34px,4.8vw,76px)] font-normal leading-[1.02] tracking-[-0.015em]">
             <span id="herren-h">Diskret <em>&amp;</em> Professionell</span>
           </Reveal>
           <Reveal as="p" delay={0.1} className="m-0 text-lg text-ink-1">Professionelle Lösungen bei Haarausfall für Männer.</Reveal>
@@ -241,7 +250,7 @@ export default function HomePage() {
       {/* ───── Vorher & Nachher ───── */}
       <section aria-labelledby="ba-h" className="wrap section-y">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
-          <Reveal as="h2" className="serif m-0 text-[clamp(44px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
+          <Reveal as="h2" className="serif m-0 text-[clamp(38px,6vw,96px)] font-normal leading-[0.98] tracking-[-0.02em]">
             <span id="ba-h">Vorher <em className="text-graphite">&amp;</em> Nachher</span>
           </Reveal>
           <Reveal as="p" delay={0.1} className="m-0 max-w-[360px] text-ink-3">
@@ -258,7 +267,7 @@ export default function HomePage() {
         <div className="wrap section-y grid gap-x-[120px] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr))]">
           <div className="flex flex-col gap-7">
             <Reveal as="p" className="eyebrow m-0 text-graphite">Transparent &amp; fair</Reveal>
-            <Reveal as="h2" className="serif m-0 text-[clamp(44px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
+            <Reveal as="h2" className="serif m-0 text-[clamp(38px,5.4vw,88px)] font-normal leading-[0.98] tracking-[-0.02em]">
               <span id="preise-h">Zweithaar<br /><em>Preisliste</em></span>
             </Reveal>
             <Reveal as="p" delay={0.1} className="m-0 max-w-[380px] text-ink-3">Direkte Abrechnung mit gesetzlichen und privaten Krankenkassen.</Reveal>
@@ -288,10 +297,10 @@ export default function HomePage() {
                   {g.rows.map(([n, d, p]) => (
                     <div key={n} className="price-row flex items-baseline gap-4 border-b border-charcoal/16 py-[22px]">
                       <dt className="flex-1">
-                        <span className="serif block text-[26px] leading-tight">{n}</span>
+                        <span className="serif block text-[22px] leading-tight sm:text-[26px]">{n}</span>
                         {d && <span className="text-sm text-graphite">{d}</span>}
                       </dt>
-                      <dd className={p === "Kostenlos" ? "eyebrow m-0 text-graphite" : "serif m-0 text-[28px]"}>{p}</dd>
+                      <dd className={p === "Kostenlos" ? "eyebrow m-0 text-graphite" : "serif m-0 whitespace-nowrap text-[24px] sm:text-[28px]"}>{p}</dd>
                     </div>
                   ))}
                 </dl>
@@ -316,12 +325,12 @@ export default function HomePage() {
             <Image src={img.salonStyling.src} alt="" fill sizes="100vw" className="mono object-cover object-[50%_35%]" />
           </Parallax>
         </div>
-        <div className="wrap relative flex flex-col items-start gap-9 py-[clamp(110px,13vw,200px)]">
+        <div className="wrap relative flex flex-col items-start gap-9 py-[clamp(88px,13vw,200px)]">
           <Reveal as="p" className="eyebrow m-0 text-silver">Schönheit, die begeistert</Reveal>
           <Reveal as="h2" className="serif m-0 max-w-[1100px] text-[clamp(48px,7.6vw,124px)] font-normal leading-[0.96] tracking-[-0.02em]">
             <span id="cta-h">Erstklassige Haarkunst <em className="text-silver">auf höchstem Niveau.</em></span>
           </Reveal>
-          <Reveal delay={0.1} className="flex flex-wrap gap-3.5">
+          <Reveal delay={0.1} className="cta-row">
             <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
             <ButtonLink href={site.phoneHref} variant="ghost-light" arrow={false}>{site.phone}</ButtonLink>
           </Reveal>

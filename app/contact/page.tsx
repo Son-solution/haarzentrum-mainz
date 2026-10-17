@@ -17,10 +17,10 @@ export default function ContactPage() {
   return (
     <>
       <section aria-label="Einleitung" className="bg-charcoal text-ivory">
-        <div className="wrap flex flex-wrap items-end justify-between gap-12 pb-[88px] pt-[200px]">
+        <div className="wrap flex flex-wrap items-end justify-between gap-12 pb-[clamp(56px,8vw,88px)] pt-[clamp(128px,18vw,200px)]">
           <div className="flex flex-col gap-7">
             <FadeIn delay={0.35}><h1 className="eyebrow m-0 text-silver">Kontaktieren Sie uns</h1></FadeIn>
-            <p className="serif m-0 text-[clamp(56px,9vw,144px)] leading-[0.94] tracking-[-0.025em]">
+            <p className="serif m-0 text-[clamp(42px,11vw,144px)] leading-[0.94] tracking-[-0.025em]">
               <LineReveal lines={["Termin", <em key="s" className="sheen">vereinbaren.</em>]} />
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function ContactPage() {
       </section>
 
       <section aria-labelledby="anfahrt-h" className="px-1 pb-1">
-        <div className="frame relative flex min-h-[520px] items-end bg-charcoal">
+        <div className="frame relative flex min-h-[clamp(420px,70vw,520px)] items-end bg-charcoal">
           <div className="absolute inset-0 opacity-70">
             <Parallax>
               <Image src={img.studioDamen.src} alt="" fill sizes="100vw" className="mono object-cover object-[82%_35%]" />
@@ -68,11 +68,11 @@ export default function ContactPage() {
           <div className="relative z-[2] flex w-full flex-wrap items-end justify-between gap-8 bg-[linear-gradient(0deg,rgba(23,25,28,.85),rgba(23,25,28,0))] p-[clamp(32px,5vw,72px)] text-white">
             <div>
               <Reveal as="p" className="eyebrow m-0 mb-3.5 text-silver">Anfahrt</Reveal>
-              <Reveal as="h2" className="serif m-0 text-[clamp(36px,5vw,72px)] font-normal leading-[1.02]">
+              <Reveal as="h2" className="serif m-0 text-[clamp(26px,7.5vw,72px)] font-normal leading-[1.02]">
                 <span id="anfahrt-h"><span className="whitespace-nowrap">{site.address.street}</span><br /><em className="text-silver">{site.address.postalCode} {site.address.city}</em></span>
               </Reveal>
             </div>
-            <Reveal delay={0.1}><ButtonLink href={site.mapsUrl} variant="silver">Route planen</ButtonLink></Reveal>
+            <Reveal delay={0.1} className="cta-row"><ButtonLink href={site.mapsUrl} variant="silver">Route planen</ButtonLink></Reveal>
           </div>
         </div>
       </section>

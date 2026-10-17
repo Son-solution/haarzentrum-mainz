@@ -29,6 +29,7 @@ import toupetVorher from "@/public/images/vorher-nachher/toupet-vorher.webp";
 import toupetNachher from "@/public/images/vorher-nachher/toupet-nachher.webp";
 import logoLight from "@/public/logos/haarzentrum-mainz-logo-hell.png";
 import logoIcon from "@/public/logos/haarzentrum-mainz-icon.png";
+import dizert from "@/public/logos/dizert-zertifikat-126-sgb-v.jpg";
 import type { StaticImageData } from "next/image";
 
 export type Photo = { src: StaticImageData; alt: string };
@@ -73,3 +74,6 @@ export const beforeAfterPairs = [
 ];
 
 export const logo = { light: logoLight, icon: logoIcon };
+
+/** Quality certificate (DIZert) – required for billing medical wigs with health insurers. */
+export const certificate = { src: dizert, alt: "DIZert – zertifiziert gemäß § 126 SGB V" };

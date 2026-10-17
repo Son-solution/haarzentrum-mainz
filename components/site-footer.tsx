@@ -9,8 +9,8 @@ export function SiteFooter() {
   return (
     <footer className="bg-deep text-ivory">
       <div className="wrap flex flex-col gap-[72px] pb-10 pt-24">
-        <div className="flex flex-wrap items-end justify-between gap-8 overflow-hidden border-b border-white/12 pb-14">
-          <Drift className="serif m-0 whitespace-nowrap text-[clamp(64px,11vw,176px)] leading-[0.9] tracking-[-0.03em]">
+        <div className="flex flex-wrap items-end justify-between gap-8 overflow-hidden max-lg:flex-col max-lg:items-stretch border-b border-white/12 pb-14">
+          <Drift className="serif m-0 whitespace-nowrap text-[clamp(40px,11vw,176px)] leading-[0.9] tracking-[-0.03em]">
             Gönn dir <em className="text-silver">was.</em>
           </Drift>
           <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
@@ -71,7 +71,7 @@ export function SiteFooter() {
           ))}
         </nav>
 
-        <div className="flex flex-wrap justify-between gap-4 text-xs tracking-[0.06em] text-ivory/55">
+        <div className="flex flex-wrap justify-between gap-4 text-xs max-sm:flex-col max-sm:items-center max-sm:text-center tracking-[0.06em] text-ivory/55">
           <span>© {site.name}. Alle Rechte vorbehalten {new Date().getFullYear()}</span>
           <div className="flex gap-6">
             <Link className="dist" href="/impressum/">Impressum</Link>

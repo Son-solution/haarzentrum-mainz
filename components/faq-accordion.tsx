@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useId, useState } from "react";
 import { faqs } from "@/lib/content";
-import { EASE_LUX } from "./motion";
+import { EASE_LUX, Reveal } from "./motion";
 
 export function FaqAccordion() {
   const [open, setOpen] = useState<number>(0);
@@ -15,7 +15,7 @@ export function FaqAccordion() {
         const panelId = `${base}-panel-${i}`;
         const btnId = `${base}-btn-${i}`;
         return (
-          <div key={f.q} className="border-b border-charcoal/20">
+          <Reveal key={f.q} delay={Math.min(i, 4) * 0.05} y={32} className="border-b border-charcoal/20">
             <h2 className="m-0 font-normal">
               <button
                 id={btnId}
@@ -54,7 +54,7 @@ export function FaqAccordion() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </Reveal>
         );
       })}
     </div>

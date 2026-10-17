@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { priceCategories, priceGroups } from "@/lib/content";
-import { EASE_LUX } from "./motion";
+import { EASE_LUX, Reveal } from "./motion";
 
 export function PriceList() {
   const [cat, setCat] = useState<(typeof priceCategories)[number]>("Alle");
@@ -41,12 +41,13 @@ export function PriceList() {
               exit={{ opacity: 0, y: -16, transition: { duration: 0.3 } }}
               transition={{ duration: 0.9, ease: EASE_LUX }}
             >
-              <div className="flex flex-[1_1_260px] flex-col gap-2.5">
+              <Reveal className="flex flex-[1_1_260px] flex-col gap-2.5">
                 <span className="eyebrow text-graphite">{g.cat}</span>
                 <h2 className="serif m-0 text-[clamp(32px,3.4vw,50px)] font-normal leading-[1.04]">{g.title}</h2>
                 {g.note && <span className="text-sm text-graphite">{g.note}</span>}
-              </div>
-              <dl className="m-0 min-w-0 flex-[999_1_520px]">
+              </Reveal>
+              <Reveal delay={0.08} className="min-w-0 flex-[999_1_520px]">
+              <dl className="m-0">
                 {g.items.map((it) => (
                   <div key={it.n} className="price-row flex items-baseline gap-5 border-b border-charcoal/16 py-5">
                     <dt className="min-w-0 flex-1">
@@ -57,6 +58,7 @@ export function PriceList() {
                   </div>
                 ))}
               </dl>
+              </Reveal>
             </motion.section>
           ))}
         </AnimatePresence>

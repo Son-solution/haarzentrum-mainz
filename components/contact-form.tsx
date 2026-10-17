@@ -6,7 +6,7 @@ import { useState } from "react";
 import { contactServices } from "@/lib/content";
 import { contactSchema } from "@/lib/contact-schema";
 import { site } from "@/lib/site";
-import { EASE_LUX } from "./motion";
+import { EASE_LUX, Reveal } from "./motion";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
@@ -108,6 +108,7 @@ export function ContactForm() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
+          <Reveal y={32}>
           <fieldset className="m-0 flex flex-col gap-4 border-0 p-0">
             <legend className="eyebrow mb-4 p-0 text-graphite">01 · Leistung wählen</legend>
             <div className="flex flex-wrap gap-2.5" role="radiogroup" aria-label="Leistung">
@@ -130,7 +131,9 @@ export function ContactForm() {
               })}
             </div>
           </fieldset>
+          </Reveal>
 
+          <Reveal delay={0.08} y={32}>
           <fieldset className="m-0 grid gap-x-9 gap-y-7 border-0 p-0 [grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr))]">
             <legend className="eyebrow mb-4 p-0 text-graphite">02 · Ihre Angaben</legend>
             <div className="field">
@@ -169,6 +172,7 @@ export function ContactForm() {
               <input id="k-web" name="website" type="text" tabIndex={-1} autoComplete="off" />
             </div>
           </fieldset>
+          </Reveal>
 
           <div className="flex flex-col gap-2">
             <label className="flex cursor-pointer items-start gap-3.5 text-sm text-ink-2">

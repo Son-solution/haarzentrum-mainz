@@ -6,14 +6,24 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
   return (
     <ul className="logo-row m-0 flex list-none items-center p-0" aria-hidden={hidden || undefined}>
       {partners.map((p) => (
-        <li key={p.name} className="flex h-[72px] w-[150px] flex-none items-center justify-center px-4 sm:w-[200px] sm:px-6">
-          <Image
-            src={p.src}
-            alt={hidden ? "" : p.name}
-            sizes="200px"
-            className="partner-logo w-auto max-w-full object-contain"
-            style={{ height: p.h }}
-          />
+        <li key={p.name} className="flex-none">
+          <a
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={hidden ? -1 : undefined}
+            aria-label={`${p.name} – Website öffnen (neuer Tab)`}
+            title={p.name}
+            className="flex h-[72px] w-[150px] items-center justify-center px-4 sm:w-[200px] sm:px-6"
+          >
+            <Image
+              src={p.src}
+              alt=""
+              sizes="200px"
+              className="partner-logo w-auto max-w-full object-contain"
+              style={{ height: p.h }}
+            />
+          </a>
         </li>
       ))}
     </ul>

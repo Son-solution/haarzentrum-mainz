@@ -93,12 +93,12 @@ export const certificate = { src: dizert, alt: "DIZert – zertifiziert gemäß 
  * tuned per logo so wide wordmarks and compact emblems look optically equal.
  */
 export const partners = [
-  { name: "Dening Hair Company", src: pDening, h: 38 },
-  { name: "Ellen Wille – The Hair Company", src: pEllenWille, h: 26 },
-  { name: "Bergmann Haare", src: pBergmann, h: 62 },
-  { name: "gfh – Hair for Wear", src: pGfh, h: 50 },
-  { name: "Aderans", src: pAderans, h: 38 },
-  { name: "Gisela Mayer", src: pGiselaMayer, h: 50 },
-  { name: "Modess", src: pModess, h: 66 },
-  { name: "Exen Hair", src: pExen, h: 66 },
+  { name: "Dening Hair Company", src: pDening, h: 38, url: "https://www.dening.de/" },
+  { name: "Ellen Wille – The Hair Company", src: pEllenWille, h: 26, url: "https://www.ellen-wille.de/" },
+  { name: "Bergmann Haare", src: pBergmann, h: 62, url: "https://bergmann.de/" },
+  { name: "gfh – Hair for Wear", src: pGfh, h: 50, url: "https://www.gfh-hair.de/" },
+  { name: "Aderans", src: pAderans, h: 38, url: "https://www.aderans.de/" },
+  { name: "Gisela Mayer", src: pGiselaMayer, h: 50, url: "https://www.gisela-mayer.com/" },
+  { name: "Modess", src: pModess, h: 66, url: "https://modess.net/" },
+  { name: "Exen Hair", src: pExen, h: 66, url: "https://exenhair.com/" },
 ];

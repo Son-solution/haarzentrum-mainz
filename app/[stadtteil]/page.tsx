@@ -116,14 +116,14 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
 
       {nearby.length > 0 && (
         <nav aria-label={`Weitere Stadtteile in ${d.city}`} className="border-t border-charcoal/12">
-          <div className="wrap py-14">
+          <Reveal y={32} className="wrap py-14">
             <p className="eyebrow m-0 mb-4 text-graphite">Auch für {d.city}</p>
             <ul className="m-0 flex list-none flex-wrap gap-x-5 gap-y-2 p-0 text-sm">
               {nearby.map((x) => (
                 <li key={x.slug}><Link href={`/${x.slug}/`} className="dist text-ink-3">{x.label}</Link></li>
               ))}
             </ul>
-          </div>
+          </Reveal>
         </nav>
       )}
     </>

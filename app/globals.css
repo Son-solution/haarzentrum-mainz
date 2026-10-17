@@ -379,8 +379,12 @@
     width: max-content;
     animation: marquee 38s linear infinite;
   }
-  .logo-slider:hover .logo-track {
+  .logo-slider:hover .logo-track,
+  .logo-slider:focus-within .logo-track {
     animation-play-state: paused;
+  }
+  .logo-row a:focus-visible .partner-logo {
+    opacity: 1;
   }
   .partner-logo {
     filter: brightness(0);

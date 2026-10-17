@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FadeIn, LineReveal } from "./motion";
+import { FadeIn, LineReveal, Reveal } from "./motion";
 
 export function LegalPage({ eyebrow, title, children }: { eyebrow: string; title: string; children: ReactNode }) {
   return (
@@ -13,7 +13,7 @@ export function LegalPage({ eyebrow, title, children }: { eyebrow: string; title
         </div>
       </section>
       <article className="mx-auto max-w-[860px] px-[var(--gutter)] py-[clamp(72px,9vw,120px)] text-ink-1 [&_a]:underline [&_a]:underline-offset-4 [&_h2]:font-serif [&_h2]:mb-4 [&_h2]:mt-12 [&_h2]:text-[24px] sm:[&_h2]:text-[30px] [&_h2]:font-normal [&_h2]:text-charcoal [&_p]:my-3">
-        {children}
+        <Reveal y={32}>{children}</Reveal>
       </article>
     </>
   );

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { logo } from "@/lib/images";
 import { districtCities, districts, mainNav, site } from "@/lib/site";
-import { Drift } from "./motion";
+import { Drift, Reveal } from "./motion";
 import { ButtonLink } from "./ui";
 
 export function SiteFooter() {
@@ -16,6 +16,7 @@ export function SiteFooter() {
           <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
         </div>
 
+        <Reveal>
         <div className="grid gap-10 [grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr))]">
           <div className="flex flex-col gap-2.5">
             <Image src={logo.light} alt="Haarzentrum Mainz" className="mb-2.5 h-[42px] w-auto self-start" sizes="300px" />
@@ -57,6 +58,9 @@ export function SiteFooter() {
           </nav>
         </div>
 
+        </Reveal>
+
+        <Reveal delay={0.1}>
         <nav
           aria-label="Stadtteile"
           className="grid gap-8 border-t border-white/12 pt-10 [grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))]"
@@ -77,6 +81,9 @@ export function SiteFooter() {
           ))}
         </nav>
 
+        </Reveal>
+
+        <Reveal delay={0.1}>
         <div className="flex flex-wrap justify-between gap-4 text-xs max-sm:flex-col max-sm:items-center max-sm:text-center tracking-[0.06em] text-ivory/55">
           <span>© {site.name}. Alle Rechte vorbehalten {new Date().getFullYear()}</span>
           <div className="flex gap-6">
@@ -84,6 +91,7 @@ export function SiteFooter() {
             <Link className="dist" href="/datenschutzerklarung/">Datenschutzerklärung</Link>
           </div>
         </div>
+        </Reveal>
       </div>
     </footer>
   );

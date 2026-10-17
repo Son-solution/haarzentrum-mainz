@@ -7,7 +7,7 @@ export const site = {
   tagline: "Perückenstudio & Friseur",
   url: "https://haarzentrum-mainz.de",
   owner: "Amela Bosnic",
-  vatId: "72601964659",
+  vatId: "DE288857841",
   phone: "+49 172 9394433",
   phoneHref: "tel:+491729394433",
   email: "info@haarzentrum-mainz.de",

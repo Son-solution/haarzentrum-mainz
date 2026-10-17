@@ -31,7 +31,11 @@ export default function ImpressumPage() {
         Website: <a href={site.url}>{site.url.replace("https://", "")}</a>
       </p>
       <h2>Umsatzsteuer</h2>
-      <p>USt-IdNr.: {site.vatId}</p>
+      <p>
+        Umsatz­steuer-Identifikations­nummer gemäß § 27a Umsatzsteuergesetz:
+        <br />
+        {site.vatId}
+      </p>
       <h2>Bildnachweise</h2>
       <p>
         Einige Bilder stammen von Unsplash (<a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">unsplash.com</a>).

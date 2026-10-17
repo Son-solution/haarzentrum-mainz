@@ -189,6 +189,56 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ───── Große Auswahl vor Ort ───── */}
+      <section aria-labelledby="auswahl-h" className="wrap section-y grid items-center gap-x-[clamp(48px,7vw,120px)] gap-y-14 [grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr))]">
+        <div className="relative">
+          <ImageReveal parallax className="aspect-[4/5] w-full max-w-[600px] max-lg:mx-auto">
+            <Image src={img.schaufenster.src} alt="Große Auswahl an Perücken und Zweithaar zum Anprobieren im Haarzentrum Mainz" fill sizes="(max-width: 1000px) 100vw, 45vw" className="object-cover object-[35%_40%]" placeholder="blur" />
+          </ImageReveal>
+          <Reveal delay={0.25} y={32} className="absolute -bottom-6 left-6 bg-charcoal px-6 py-5 text-ivory shadow-[0_20px_50px_rgba(0,0,0,.25)] sm:-bottom-8 sm:left-auto sm:right-6">
+            <span className="serif block text-[clamp(26px,2.4vw,34px)] italic leading-none text-silver">Vor Ort</span>
+            <span className="eyebrow mt-2 block text-ivory/80">anprobieren &amp; vergleichen</span>
+          </Reveal>
+        </div>
+        <div className="flex flex-col gap-7">
+          <Reveal as="p" className="eyebrow m-0 text-graphite">Große Auswahl im Studio</Reveal>
+          <Reveal as="h2" className="serif m-0 text-[clamp(34px,4.6vw,72px)] font-normal leading-[1.04] tracking-[-0.015em] [text-wrap:balance]">
+            <span id="auswahl-h">Perücken &amp; Zweithaar <em className="text-graphite">in Ruhe anprobieren.</em></span>
+          </Reveal>
+          <DrawLine />
+          <Reveal as="p" delay={0.1} className="m-0 text-lg text-ink-1">
+            In unserem Studio in Mainz finden Sie eine große Auswahl an Perücken, Haarteilen und Zweithaar – in vielen Farben, Längen und Schnitten, aus Echthaar und Kunsthaar. Probieren Sie verschiedene Modelle direkt vor Ort an und finden Sie gemeinsam mit uns die Lösung, die wirklich zu Ihnen passt.
+          </Reveal>
+          <ul className="m-0 flex list-none flex-col p-0">
+            {[
+              ["Anprobieren statt raten", "Sehen und fühlen Sie selbst, welche Form, Länge und Farbe Ihnen steht – direkt am Spiegel."],
+              ["Echthaar & Kunsthaar", "Wir zeigen Ihnen die Unterschiede in Optik, Tragekomfort und Pflege im direkten Vergleich."],
+              ["Diskret & ohne Zeitdruck", "Kostenlose Beratung in geschützter Atmosphäre – ganz in Ihrem Tempo."],
+            ].map(([k, v], i) => (
+              <Reveal
+                as="li"
+                key={k}
+                delay={i * 0.08}
+                y={32}
+                className={`flex gap-5 border-t border-charcoal/16 py-5 ${i === 2 ? "border-b" : ""}`}
+              >
+                <span className="serif min-w-[26px] pt-0.5 italic text-graphite">{String(i + 1).padStart(2, "0")}</span>
+                <span>
+                  <span className="serif block text-[clamp(21px,1.8vw,26px)] leading-tight">{k}</span>
+                  <span className="mt-1 block text-ink-2">{v}</span>
+                </span>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={0.2} className="cta-row mt-2">
+            <ButtonLink href="/contact/" variant="dark">Anprobe-Termin vereinbaren</ButtonLink>
+            <ButtonLink href={site.phoneHref} variant="dark" arrow={false} className="!bg-transparent !text-charcoal shadow-[inset_0_0_0_1px_rgba(23,25,28,.35)]">
+              {site.phone}
+            </ButtonLink>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ───── Spezialgebiete ───── */}
       <section aria-labelledby="spezial-h" className="relative overflow-hidden bg-charcoal text-ivory">
         <div className="wrap section-y grid items-start gap-x-24 gap-y-12 [grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr))]">
@@ -316,7 +366,9 @@ export default function HomePage() {
         <Reveal as="h2" className="eyebrow m-0 font-medium text-graphite">
           <span id="ref-h">Referenzen · Das sagen unsere Kunden</span>
         </Reveal>
-        <Testimonials />
+        <Reveal delay={0.1} className="w-full">
+          <Testimonials />
+        </Reveal>
       </section>
 
       {/* ───── Partner ───── */}

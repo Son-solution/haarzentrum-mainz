@@ -9,6 +9,7 @@ import { Menu, X } from "lucide-react";
 import { logo } from "@/lib/images";
 import { mainNav, site } from "@/lib/site";
 import { EASE_CURTAIN, EASE_LUX } from "./motion";
+import { SocialLinks } from "./social-icons";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -78,7 +79,7 @@ export function SiteHeader() {
               loading="eager"
             />
           </Link>
-          <nav aria-label="Hauptnavigation" className="hidden items-center gap-[34px] min-[1061px]:flex">
+          <nav aria-label="Hauptnavigation" className="hidden items-center gap-[clamp(20px,2.3vw,34px)] min-[1061px]:flex">
             {mainNav.map((item) => (
               <Link
                 key={item.href}
@@ -91,6 +92,7 @@ export function SiteHeader() {
             ))}
           </nav>
           <div className="flex items-center gap-3.5">
+            <SocialLinks className="hidden gap-1 min-[621px]:flex" itemClassName="text-ivory/80 hover:bg-white/10 hover:text-ivory" />
             <a
               href={site.bookingUrl}
               target="_blank"
@@ -177,10 +179,7 @@ export function SiteHeader() {
                 <span>{site.address.street}, {site.address.postalCode} {site.address.city}</span>
                 <span>{site.hours.label}</span>
               </div>
-              <div className="flex gap-8 text-sm text-ivory/75 max-sm:justify-center">
-                <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="no-underline">Instagram ↗</a>
-                <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="no-underline">Facebook ↗</a>
-              </div>
+              <SocialLinks className="gap-3 max-sm:justify-center" itemClassName="!h-12 !w-12 border border-white/30 text-ivory hover:bg-white/10" />
             </motion.div>
           </motion.div>
         )}

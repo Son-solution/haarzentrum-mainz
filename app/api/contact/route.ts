@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
 
-  const { subject, text, html } = buildContactEmail(data);
+  const { subject, text, html } = buildContactEmail(data, new URL(request.url).origin);
 
   try {
     await transporter.sendMail({

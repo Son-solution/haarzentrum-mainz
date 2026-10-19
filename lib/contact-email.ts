@@ -25,10 +25,12 @@ const C = {
 };
 const SERIF = "'Bodoni 72', Didot, Georgia, 'Times New Roman', serif";
 /* Must be an absolute URL – email clients can't resolve relative paths. */
-const LOGO_URL = `${site.url}/logos/haarzentrum-mainz-logo-hell.png`;
+const LOGO_PATH = "/logos/haarzentrum-mainz-logo-hell.png";
 const SANS = "'Helvetica Neue', Helvetica, Arial, sans-serif";
 
-export function buildContactEmail(data: ContactInput) {
+/** `origin` = the site the form was sent from, so the logo loads even before the main domain points here. */
+export function buildContactEmail(data: ContactInput, origin: string = site.url) {
+  const logoUrl = `${origin}${LOGO_PATH}`;
   const date = data.date ? formatDate(data.date) : "";
   const telHref = data.tel ? `tel:${data.tel.replace(/[^\d+]/g, "")}` : "";
   const received = new Date().toLocaleString("de-DE", {
@@ -102,7 +104,7 @@ export function buildContactEmail(data: ContactInput) {
           <tr>
             <td style="background:${C.charcoal};padding:30px 36px 26px;">
               <a href="${site.url}" style="text-decoration:none;">
-                <img class="hz-logo" src="${LOGO_URL}" width="260" alt="${site.name} – ${site.tagline}" style="display:block;width:260px;max-width:100%;height:auto;border:0;font-family:${SERIF};font-size:22px;color:${C.ivory};">
+                <img class="hz-logo" src="${escape(logoUrl)}" width="260" alt="${site.name} – ${site.tagline}" style="display:block;width:260px;max-width:100%;height:auto;border:0;font-family:${SERIF};font-size:22px;color:${C.ivory};">
               </a>
               <div class="hz-line" style="width:56px;height:1px;background:${C.gold};margin-top:22px;font-size:0;line-height:0;">&nbsp;</div>
             </td>

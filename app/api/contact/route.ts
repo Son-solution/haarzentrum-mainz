@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { buildContactEmail } from "@/lib/contact-email";
 import { contactSchema } from "@/lib/contact-schema";
 import { site } from "@/lib/site";
 
@@ -16,9 +17,6 @@ function limited(ip: string) {
   hits.set(ip, list);
   return list.length > MAX_HITS;
 }
-
-const escape = (s: string) =>
-  s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!);
 
 export async function POST(request: Request) {
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
@@ -60,25 +58,16 @@ export async function POST(request: Request) {
     auth: { user: SMTP_USER, pass: SMTP_PASS },
   });
 
-  const rows: [string, string][] = [
-    ["Leistung", data.service],
-    ["Name", data.name],
-    ["Telefon", data.tel || "–"],
-    ["E-Mail", data.email],
-    ["Wunschtermin", data.date || "–"],
-    ["Nachricht", data.message || "–"],
-  ];
+  const { subject, text, html } = buildContactEmail(data);
 
   try {
     await transporter.sendMail({
       from: CONTACT_FROM || (SMTP_USER.includes("@") ? SMTP_USER : site.email),
       to: CONTACT_TO || site.email,
       replyTo: { name: data.name, address: data.email },
-      subject: `Terminanfrage: ${data.service} – ${data.name}`,
-      text: rows.map(([k, v]) => `${k}: ${v}`).join("\n"),
-      html: `<h2>Neue Terminanfrage über haarzentrum-mainz.de</h2><table cellpadding="6">${rows
-        .map(([k, v]) => `<tr><td><strong>${k}</strong></td><td>${escape(v).replace(/\n/g, "<br>")}</td></tr>`)
-        .join("")}</table>`,
+      subject,
+      text,
+      html,
     });
   } catch (err) {
     console.error("[contact] sending failed", err);

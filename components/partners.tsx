@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { partners } from "@/lib/images";
-import { Reveal } from "./motion";
+import { MarqueeTrack, Reveal } from "./motion";
 
 function LogoRow({ hidden = false }: { hidden?: boolean }) {
   return (
@@ -33,18 +33,12 @@ function LogoRow({ hidden = false }: { hidden?: boolean }) {
 /** Endless, monochrome partner-logo slider (pauses on hover, static grid with reduced motion). */
 export function Partners() {
   return (
-    <section aria-labelledby="partner-h" className="border-t border-charcoal/12 py-[clamp(64px,8vw,112px)]">
-      <div className="wrap mb-[clamp(36px,5vw,64px)] flex flex-col items-center gap-4 text-center">
-        <Reveal as="p" className="eyebrow m-0 text-graphite">Unsere Partner</Reveal>
-        <Reveal as="h2" className="serif m-0 text-[clamp(32px,4.4vw,64px)] font-normal leading-[1.04] tracking-[-0.015em]">
-          <span id="partner-h">Marken, denen wir <em className="text-graphite">vertrauen.</em></span>
-        </Reveal>
-      </div>
+    <section aria-label="Unsere Partner" className="border-b border-charcoal/12 py-[clamp(20px,2.5vw,32px)]">
       <Reveal delay={0.1} y={24} className="logo-slider">
-        <div className="logo-track">
+        <MarqueeTrack className="logo-track">
           <LogoRow />
           <LogoRow hidden />
-        </div>
+        </MarqueeTrack>
       </Reveal>
     </section>
   );

@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { marqueeWords } from "@/lib/content";
 import { logo } from "@/lib/images";
+import { MarqueeTrack } from "./motion";
 
 /** Endless italic service band beneath the hero. */
 export function Marquee() {
   const row = marqueeWords.flatMap((w) => [w, "✦"]);
   return (
     <div aria-hidden="true" className="overflow-hidden border-t border-white/8 bg-charcoal py-[26px] text-silver">
-      <div className="marquee serif gap-14 whitespace-nowrap text-[clamp(26px,3vw,40px)] italic">
+      <MarqueeTrack className="marquee serif whitespace-nowrap text-[clamp(26px,3vw,40px)] italic">
         {[...row, ...row].map((w, i) => (
-          <span key={i} className={w === "✦" ? "not-italic text-white/50" : ""}>{w}</span>
+          <span key={i} className={`pr-14 ${w === "✦" ? "not-italic text-white/50" : ""}`}>{w}</span>
         ))}
-      </div>
+      </MarqueeTrack>
     </div>
   );
 }

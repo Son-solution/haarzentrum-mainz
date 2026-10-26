@@ -117,6 +117,9 @@ export default function HomePage() {
 
       <Marquee />
 
+      {/* ───── Partner ───── */}
+      <Partners />
+
       {/* ───── Willkommen ───── */}
       <section aria-labelledby="willkommen" className="wrap section-y">
         <div className="grid items-center gap-[clamp(56px,7vw,120px)] [grid-template-columns:repeat(auto-fit,minmax(min(460px,100%),1fr))]">
@@ -370,9 +373,6 @@ export default function HomePage() {
           <Testimonials />
         </Reveal>
       </section>
-
-      {/* ───── Partner ───── */}
-      <Partners />
 
       {/* ───── Abschluss-CTA ───── */}
       <section aria-labelledby="cta-h" className="relative overflow-hidden bg-charcoal text-ivory">

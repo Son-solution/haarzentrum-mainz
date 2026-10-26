@@ -377,7 +377,8 @@
   .logo-track {
     display: flex;
     width: max-content;
-    animation: marquee 38s linear infinite;
+    /* Runs opposite to the service marquee directly above it. */
+    animation: marquee 52s linear infinite reverse;
   }
   .logo-slider:hover .logo-track,
   .logo-slider:focus-within .logo-track {

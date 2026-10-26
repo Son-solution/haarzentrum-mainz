@@ -313,3 +313,31 @@ export function ScrollBrighten({ children, className }: { children: ReactNode; c
     </motion.p>
   );
 }
+
+/** Shared scroll speed of both endless bands, in px per second – slow enough to read comfortably. */
+export const MARQUEE_SPEED = 40;
+
+/**
+ * Endless band track (holds two identical copies of its content). Measures one copy and sets the
+ * CSS animation duration so every band moves at the same on-screen speed at every viewport width.
+ */
+export function MarqueeTrack({ children, className }: { children: ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const update = () => {
+      const distance = el.scrollWidth / 2; // the keyframes travel exactly one copy (-50%)
+      if (distance > 0) el.style.animationDuration = `${distance / MARQUEE_SPEED}s`;
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
+}

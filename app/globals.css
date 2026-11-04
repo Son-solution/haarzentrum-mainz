@@ -452,6 +452,38 @@
     }
   }
 
+  /* Hero studio film: soft ring pulse on the play button, fade-in for the dialog */
+  .film-pulse {
+    animation: film-pulse 2.8s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+  }
+  @keyframes film-pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    to {
+      transform: scale(1.7);
+      opacity: 0;
+    }
+  }
+  .film-dialog[open] {
+    animation: film-in 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  .film-dialog[open]::backdrop {
+    animation: film-fade 0.5s ease-out;
+  }
+  @keyframes film-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.97);
+    }
+  }
+  @keyframes film-fade {
+    from {
+      opacity: 0;
+    }
+  }
+
   /* ───────── Form fields ───────── */
   .field {
     position: relative;
@@ -514,6 +546,7 @@
   .marquee,
   .spin,
   .scrollcue::after,
+  .film-pulse,
   .logo-track {
     animation: none !important;
   }

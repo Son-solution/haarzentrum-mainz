@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { BeforeAfter } from "@/components/before-after";
 import { Marquee, RotatingBadge } from "@/components/decor";
-import { Curtain, DrawLine, FadeIn, ImageReveal, KenBurns, LineReveal, Parallax, Reveal } from "@/components/motion";
+import { HeroFilm } from "@/components/hero-film";
+import { Curtain, DrawLine, FadeIn, ImageReveal, LineReveal, Parallax, Reveal } from "@/components/motion";
 import { Partners } from "@/components/partners";
 import { Testimonials } from "@/components/testimonials";
 import { ButtonLink, TextLink } from "@/components/ui";
@@ -60,17 +61,7 @@ export default function HomePage() {
       {/* ───── Hero ───── */}
       <section aria-label="Einleitung" className="relative flex min-h-[900px] flex-col bg-charcoal text-ivory max-md:min-h-[100svh]">
         <div className="frame absolute inset-y-0 right-0 w-full md:w-[58%] md:max-w-[860px]">
-          <KenBurns>
-            <Image
-              src={img.heroBlonde.src}
-              alt={img.heroBlonde.alt}
-              fill
-              preload
-              sizes="(max-width: 768px) 100vw, 58vw"
-              className="object-cover object-[68%_30%]"
-              placeholder="blur"
-            />
-          </KenBurns>
+          <HeroFilm />
           <div
             aria-hidden="true"
             className="absolute inset-0 bg-[linear-gradient(0deg,#17191C_8%,rgba(23,25,28,.72)_45%,rgba(23,25,28,.25)_100%)] md:bg-[linear-gradient(90deg,#17191C_0%,rgba(23,25,28,.55)_38%,rgba(23,25,28,0)_70%)]"

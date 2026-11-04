@@ -11,7 +11,7 @@ export const metadata = pageMeta({
 
 /*
  * Describes the data processing of THIS website implementation:
- * no cookies, no analytics, self-hosted fonts, contact form via e-mail,
+ * Google Analytics only after opt-in (components/cookie-consent.tsx), self-hosted fonts, contact form via e-mail,
  * external booking via Planity. Must be reviewed by the business / legal counsel
  * before go-live (see README) – especially hosting and e-mail provider details.
  */
@@ -34,10 +34,32 @@ export default function DatenschutzPage() {
         Protokolldaten werden nicht mit anderen Daten zusammengeführt.
       </p>
 
-      <h2>3. Cookies, Tracking und Schriftarten</h2>
+      <h2>3. Cookies, Google Analytics und Schriftarten</h2>
       <p>
-        Diese Website setzt keine Cookies zu Analyse- oder Marketingzwecken und verwendet keine Tracking-Dienste. Die Schriftarten sind
-        lokal eingebunden; beim Seitenaufruf wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern aufgebaut.
+        Nur wenn Sie im Cookie-Banner auf „Akzeptieren“ klicken, nutzen wir Google Analytics 4, einen Webanalysedienst der Google Ireland
+        Limited, Gordon House, Barrow Street, Dublin 4, Irland („Google“). Google Analytics setzt Cookies und verarbeitet Nutzungsdaten
+        (z. B. aufgerufene Seiten, Verweildauer, Geräte- und Browserinformationen, ungefährer Standort), damit wir die Nutzung unserer
+        Website auswerten und verbessern können. Ihre IP-Adresse wird dabei an Google übertragen, nach Angaben von Google in Google
+        Analytics 4 jedoch nicht gespeichert. Die Daten werden pseudonym über eine zufällige Kennung verarbeitet, nicht anonym. Google
+        verarbeitet die Daten in unserem Auftrag (Auftragsverarbeitung nach Art. 28 DSGVO). Dabei kann eine Übermittlung von Daten in
+        die USA erfolgen; Google LLC ist unter dem EU-US Data Privacy Framework zertifiziert (Art. 45 DSGVO).
+      </p>
+      <p>
+        Die Google-Analytics-Cookies (_ga, _ga_*) werden bis zu 2 Jahre in Ihrem Browser gespeichert. Die Nutzungsdaten werden bei Google
+        nach 2 Monaten automatisch gelöscht.
+      </p>
+      <p>
+        Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Ohne Einwilligung wird Google Analytics nicht
+        geladen. Sie können Ihre Einwilligung jederzeit über den Link „Cookie-Einstellungen“ im Fußbereich der Website widerrufen. Ihre
+        Auswahl selbst speichern wir lokal in Ihrem Browser. Weitere Informationen:{" "}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Google
+        </a>
+        .
+      </p>
+      <p>
+        Die Schriftarten sind lokal eingebunden; dafür wird keine Verbindung zu Servern von Google oder anderen Schriftanbietern
+        aufgebaut.
       </p>
 
       <h2>4. Kontakt- und Terminanfrageformular</h2>

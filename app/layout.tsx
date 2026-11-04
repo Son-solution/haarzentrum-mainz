@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { CookieConsent } from "@/components/cookie-consent";
 import { MotionProvider } from "@/components/motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -54,6 +55,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main id="inhalt">{children}</main>
           <SiteFooter />
         </MotionProvider>
+        <CookieConsent />
       </body>
     </html>
   );

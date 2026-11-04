@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { logo } from "@/lib/images";
 import { districtCities, districts, mainNav, site } from "@/lib/site";
+import { CookieSettingsButton } from "./cookie-consent";
 import { Drift, Reveal } from "./motion";
 import { ButtonLink } from "./ui";
 
@@ -89,6 +90,7 @@ export function SiteFooter() {
           <div className="flex gap-6">
             <Link className="dist" href="/impressum/">Impressum</Link>
             <Link className="dist" href="/datenschutzerklarung/">Datenschutzerklärung</Link>
+            <CookieSettingsButton className="dist" />
           </div>
         </div>
         </Reveal>

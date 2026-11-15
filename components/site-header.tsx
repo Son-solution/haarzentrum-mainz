@@ -97,8 +97,7 @@ export function SiteHeader() {
               href={site.bookingUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-ghost-light btn-keep hidden min-[621px]:inline-flex"
-              style={{ minHeight: 46, padding: "0 24px" }}
+              className="btn btn-ghost-light btn-keep inline-flex whitespace-nowrap !min-h-[42px] !px-4 text-[13px] min-[621px]:!min-h-[46px] min-[621px]:!px-6 min-[621px]:text-[inherit]"
             >
               Termin buchen
             </a>

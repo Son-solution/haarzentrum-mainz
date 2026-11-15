@@ -22,7 +22,7 @@ const heroTrio = [
 const types = [
   { n: "01", t: "Damen Haarschnitte", d: "Schnitt & Styling, Farbe & Strähnen, Balayage und moderne Techniken wie AirTouch.", href: "/preislist/", cta: "Preise ansehen" },
   { n: "02", t: "Herren Haarschnitte", d: "Waschen, Schneiden, Styling – vom Trockenschnitt bis zum Maschinenhaarschnitt, inklusive Bart- & Konturenpflege.", href: "/preislist/", cta: "Preise ansehen" },
-  { n: "03", t: "Kinder Haarschnitte", d: "Individuelle Haarschnitte für die Kleinen – mit Zeit, Geduld und persönlicher Beratung.", href: "/contact/", cta: "Termin vereinbaren" },
+  { n: "03", t: "Kinder Haarschnitte", d: "Individuelle Haarschnitte für die Kleinen – mit Zeit, Geduld und persönlicher Beratung.", href: site.bookingUrl, cta: "Termin buchen" },
 ];
 
 const specialties = [
@@ -54,7 +54,7 @@ export default function HaarschnittPage() {
               Individuelle Haarschnitte und modernes Styling für Damen, Herren und Kinder – abgestimmt auf Haarstruktur, Gesichtsform und Ihren persönlichen Stil.
             </FadeIn>
             <FadeIn delay={1.15} className="cta-row">
-              <ButtonLink href="/contact/" variant="silver">Termin vereinbaren</ButtonLink>
+              <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
             </FadeIn>
           </div>
         </div>
@@ -77,7 +77,11 @@ export default function HaarschnittPage() {
         <div className="grid gap-x-12 [grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr))]">
           {types.map((t, i) => (
             <Reveal key={t.n} delay={i * 0.1}>
-              <Link href={t.href} className="card flex flex-col gap-[18px] border-t border-charcoal/18 pb-10 pt-8 no-underline">
+              <Link
+                href={t.href}
+                {...(t.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="card flex flex-col gap-[18px] border-t border-charcoal/18 pb-10 pt-8 no-underline"
+              >
                 <span className="serif text-lg italic text-graphite">{t.n}</span>
                 <h3 className="serif m-0 text-[clamp(30px,3vw,44px)] font-normal leading-[1.05]">{t.t}</h3>
                 <p className="m-0 text-ink-2">{t.d}</p>

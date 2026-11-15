@@ -7,9 +7,9 @@ import { pageMeta } from "@/lib/seo";
 import { site } from "@/lib/site";
 
 export const metadata = pageMeta({
-  title: "Kontakt & Termin – Haarzentrum Mainz",
+  title: "Kontakt – Haarzentrum Mainz",
   description:
-    "Kontaktieren Sie das Haarzentrum Mainz: Langenbeckstraße 2, 55131 Mainz · Tel. +49 172 9394433 · info@haarzentrum-mainz.de. Kostenlose Beratung in geschützter Atmosphäre – Termin online buchen oder anfragen.",
+    "Kontaktieren Sie das Haarzentrum Mainz: Langenbeckstraße 2, 55131 Mainz · Tel. +49 172 9394433 · info@haarzentrum-mainz.de. Kostenlose Beratung in geschützter Atmosphäre – Termine direkt online über Planity buchen.",
   path: "/contact/",
 });
 
@@ -21,8 +21,11 @@ export default function ContactPage() {
           <div className="flex flex-col gap-7">
             <FadeIn delay={0.35}><h1 className="eyebrow m-0 text-silver">Kontaktieren Sie uns</h1></FadeIn>
             <p className="serif m-0 text-[clamp(42px,11vw,144px)] leading-[0.94] tracking-[-0.025em]">
-              <LineReveal lines={["Termin", <em key="s" className="sheen">vereinbaren.</em>]} />
+              <LineReveal lines={["Kontakt", <em key="s" className="sheen">aufnehmen.</em>]} />
             </p>
+            <FadeIn delay={1.1} className="cta-row">
+              <ButtonLink href={site.bookingUrl} variant="silver">Termin online buchen</ButtonLink>
+            </FadeIn>
           </div>
           <FadeIn delay={0.95} className="grid flex-[0_1_560px] gap-x-14 gap-y-7 text-[15px] text-ivory/82 [grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr))]">
             <div><div className="eyebrow mb-2 text-silver">Telefon</div><a className="dist" href={site.phoneHref}>{site.phone}</a></div>
@@ -53,7 +56,7 @@ export default function ContactPage() {
           </ImageReveal>
         </div>
         <div className="min-w-0 flex-[999_1_560px]">
-          <Reveal as="p" className="eyebrow m-0 mb-8 text-graphite">Oder senden Sie uns Ihre Terminanfrage</Reveal>
+          <Reveal as="p" className="eyebrow m-0 mb-8 text-graphite">Oder schreiben Sie uns eine Nachricht</Reveal>
           <ContactForm />
         </div>
       </section>

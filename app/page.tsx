@@ -136,7 +136,7 @@ export default function HomePage() {
               Wir begleiten Sie persönlich – von der ersten Beratung über die Auswahl bis hin zur optimalen Anpassung. Selbstverständlich unterstützen wir Sie auch bei der Abrechnung mit Ihrer Krankenkasse.
             </Reveal>
             <Reveal delay={0.2} className="cta-row mt-2">
-              <ButtonLink href="/contact/" variant="dark">Termin vereinbaren</ButtonLink>
+              <ButtonLink href={site.bookingUrl} variant="dark">Termin buchen</ButtonLink>
               <TextLink href="/about/" className="py-4">Über uns</TextLink>
             </Reveal>
           </div>
@@ -225,7 +225,7 @@ export default function HomePage() {
             ))}
           </ul>
           <Reveal delay={0.2} className="cta-row mt-2">
-            <ButtonLink href="/contact/" variant="dark">Anprobe-Termin vereinbaren</ButtonLink>
+            <ButtonLink href={site.bookingUrl} variant="dark">Anprobe-Termin buchen</ButtonLink>
             <ButtonLink href={site.phoneHref} variant="dark" arrow={false} className="!bg-transparent !text-charcoal shadow-[inset_0_0_0_1px_rgba(23,25,28,.35)]">
               {site.phone}
             </ButtonLink>
@@ -287,7 +287,7 @@ export default function HomePage() {
             ))}
           </ul>
           <Reveal delay={0.2}>
-            <ButtonLink href="/contact/" variant="dark">Termin vereinbaren</ButtonLink>
+            <ButtonLink href={site.bookingUrl} variant="dark">Termin buchen</ButtonLink>
           </Reveal>
         </div>
       </section>

@@ -93,7 +93,7 @@ export function ContactForm() {
         >
           <span className="serif text-[56px] italic sm:text-[72px] leading-none text-graphite">Danke.</span>
           <p className="serif m-0 text-[24px] leading-[1.2] sm:text-[30px]">Ihre Anfrage für „{sentService}“ ist bei uns eingegangen.</p>
-          <p className="m-0 text-ink-2">Wir melden uns schnellstmöglich bei Ihnen, um Ihren Termin zu bestätigen.</p>
+          <p className="m-0 text-ink-2">Wir melden uns schnellstmöglich bei Ihnen, um Ihre Anfrage zu beantworten.</p>
           <button type="button" className="btn btn-dark self-start" onClick={() => setStatus("idle")}>
             Neue Anfrage
           </button>

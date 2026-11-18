@@ -60,7 +60,7 @@ export default async function DistrictPage({ params }: { params: Promise<{ stadt
             <FadeIn as="p" delay={0.95} className="m-0 max-w-[500px] text-ivory/80">
               Perücken, Haarteile, Zweithaar, Haarschnitt &amp; Haarverlängerung – für Kundinnen und Kunden aus {d.label}, in unserem Studio in der {site.address.street}, {site.address.postalCode} {site.address.city}.
             </FadeIn>
-            <FadeIn delay={1.15} className="cta-row"><ButtonLink href="/contact/" variant="silver">Kostenlose Beratung</ButtonLink></FadeIn>
+            <FadeIn delay={1.15} className="cta-row"><ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink></FadeIn>
           </div>
         </div>
       </section>

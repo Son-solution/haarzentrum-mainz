@@ -89,7 +89,7 @@ export default function HomePage() {
               Ob Echthaar oder Kunsthaar: Wir finden gemeinsam mit Ihnen die passende Lösung – mit Erfahrung, Diskretion und Liebe zum Detail.
             </FadeIn>
             <FadeIn delay={1.15} className="cta-row">
-              <ButtonLink href="/contact/" variant="silver">Kostenlose Beratung</ButtonLink>
+              <ButtonLink href={site.bookingUrl} variant="silver">Termin buchen</ButtonLink>
               <ButtonLink href="#leistungen" variant="ghost-light" arrow={false}>Perücken entdecken</ButtonLink>
             </FadeIn>
           </div>

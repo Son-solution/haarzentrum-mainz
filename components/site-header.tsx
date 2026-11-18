@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { CalendarDays, Menu, X } from "lucide-react";
 import { logo } from "@/lib/images";
 import { mainNav, site } from "@/lib/site";
 import { EASE_CURTAIN, EASE_LUX } from "./motion";
@@ -67,14 +67,14 @@ export function SiteHeader() {
           style={{ opacity: solid ? 1 : 0, borderBottom: "1px solid rgba(255,255,255,.08)" }}
         />
         <div
-          className="wrap flex items-center justify-between gap-6 transition-[padding] duration-700"
+          className="wrap flex items-center justify-between gap-3 transition-[padding] duration-700 min-[540px]:gap-6"
           style={{ paddingBlock: solid ? 14 : 26, transitionTimingFunction: "var(--ease-lux)" }}
         >
           <Link href="/" aria-label="Haarzentrum Mainz – Startseite" className="block shrink-0">
             <Image
               src={logo.light}
               alt="Haarzentrum Mainz – Perückenstudio & Friseur"
-              className="h-[clamp(34px,3.4vw,48px)] w-auto"
+              className="h-[26px] w-auto min-[360px]:h-[30px] min-[400px]:h-[clamp(34px,3.4vw,48px)]"
               sizes="320px"
               loading="eager"
             />
@@ -91,16 +91,23 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <div className="flex items-center gap-3.5">
+          <div className="flex items-center gap-2 min-[540px]:gap-3.5">
             <SocialLinks className="hidden gap-1 min-[621px]:flex" itemClassName="text-ivory/80 hover:bg-white/10 hover:text-ivory" />
-            <a
+            <Link
               href={site.bookingUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-ghost-light btn-keep inline-flex whitespace-nowrap !min-h-[42px] !px-4 text-[13px] min-[621px]:!min-h-[46px] min-[621px]:!px-6 min-[621px]:text-[inherit]"
+              className="btn btn-ghost-light btn-keep hidden whitespace-nowrap !min-h-[42px] !px-4 text-[13px] min-[540px]:inline-flex min-[621px]:!min-h-[46px] min-[621px]:!px-6 min-[621px]:text-[inherit]"
             >
               Termin buchen
-            </a>
+            </Link>
+            {/* Small phones: logo + text button + menu do not fit – compact icon button, same target. */}
+            <Link
+              href={site.bookingUrl}
+              aria-label="Termin buchen"
+              title="Termin buchen"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/40 text-ivory transition-colors duration-500 hover:bg-white/10 min-[540px]:hidden"
+            >
+              <CalendarDays size={19} strokeWidth={1.2} aria-hidden="true" />
+            </Link>
             <button
               ref={openBtn}
               type="button"
@@ -108,7 +115,7 @@ export function SiteHeader() {
               aria-label="Menü öffnen"
               aria-expanded={open}
               aria-controls="mobile-menu"
-              className="inline-flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-transparent text-ivory transition-colors duration-500 hover:bg-white/10 min-[1061px]:hidden"
+              className="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border border-white/40 bg-transparent text-ivory transition-colors duration-500 hover:bg-white/10 min-[540px]:h-12 min-[540px]:w-12 min-[1061px]:hidden"
             >
               <Menu size={20} strokeWidth={1.2} aria-hidden="true" />
             </button>
@@ -170,9 +177,9 @@ export function SiteHeader() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.7 }}
             >
-              <a href={site.bookingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-silver self-start">
-                Termin online buchen <span className="arr" aria-hidden="true">↗</span>
-              </a>
+              <Link href={site.bookingUrl} onClick={() => setOpen(false)} className="btn btn-silver self-start">
+                Termin online buchen <span className="arr" aria-hidden="true">→</span>
+              </Link>
               <div className="flex flex-wrap gap-x-12 gap-y-5 text-sm text-ivory/75 max-sm:flex-col max-sm:items-center max-sm:gap-y-2 max-sm:text-center">
                 <a href={site.phoneHref} className="no-underline">{site.phone}</a>
                 <span>{site.address.street}, {site.address.postalCode} {site.address.city}</span>

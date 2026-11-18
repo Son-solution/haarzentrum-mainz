@@ -12,7 +12,7 @@ export const metadata = pageMeta({
 /*
  * Describes the data processing of THIS website implementation:
  * Google Analytics only after opt-in (components/cookie-consent.tsx), self-hosted fonts, contact form via e-mail,
- * external booking via Planity. Must be reviewed by the business / legal counsel
+ * Planity booking module only after click (components/planity-booking.tsx). Must be reviewed by the business / legal counsel
  * before go-live (see README) – especially hosting and e-mail provider details.
  */
 export default function DatenschutzPage() {
@@ -72,11 +72,54 @@ export default function DatenschutzPage() {
       </p>
       <p>Auch bei einer Kontaktaufnahme per Telefon oder E-Mail verarbeiten wir Ihre Angaben nur zur Bearbeitung Ihres Anliegens.</p>
 
+      {/*
+       * Section 5 only states what was verified in a browser test of the embedded module (Nov 2026):
+       * no request to Planity before the click; after the click requests to d2skjte8udjqxw.cloudfront.net, www.planity.com,
+       * master.firebase.global.prod.planityapp.com and *.algolia.net / *.algolianet.com; localStorage entries
+       * ("algolia-client-js-…", "firebase:host:…") and the IndexedDB database "firebaseLocalStorageDb"; no cookies before login.
+       *
+       * STILL MISSING – to be confirmed by Planity (kontakt@planity.com) before go-live, then add here:
+       *  - legal name and address of the Planity company responsible / acting as processor
+       *  - whether Planity acts as processor (Art. 28 DSGVO, AVV) or as independent controller for booking data
+       *  - complete list of sub-processors (Amazon CloudFront, Algolia, Google/Firebase, Stripe, …) and their locations / third-country transfers
+       *  - storage duration of booking data and of the data stored in the browser (localStorage / IndexedDB, cookies after login)
+       */}
       <h2>5. Online-Terminbuchung über Planity</h2>
       <p>
-        Für die Online-Terminbuchung verlinken wir auf den externen Dienst Planity. Erst wenn Sie den Link anklicken, gelangen Sie auf die
-        Website von Planity; dort gelten deren Datenschutzbestimmungen. Beim bloßen Besuch unserer Website werden keine Daten an Planity
-        übertragen.
+        Für die Online-Terminbuchung nutzen wir den Dienst Planity. Auf unserer Seite{" "}
+        <Link href="/termin-buchen/">„Termin buchen“</Link> können Sie das Buchungsmodul von Planity direkt in unsere Website laden.
+        Das Modul wird <strong>erst geladen, wenn Sie auf „Buchungsmodul laden“ klicken</strong>. Vorher werden beim Besuch unserer Website
+        keine Daten an Planity übertragen.
+      </p>
+      <p>
+        Nach Ihrem Klick lädt Ihr Browser das Modul von Servern, die Planity dafür einsetzt, und baut Verbindungen zu weiteren Diensten auf,
+        die das Modul verwendet. Dazu gehören nach unserer Prüfung insbesondere Amazon CloudFront (Auslieferung des Programmcodes), Server
+        von Planity (planity.com, planityapp.com) sowie der Suchdienst Algolia. Dabei werden technisch notwendige Daten wie Ihre IP-Adresse,
+        Datum und Uhrzeit sowie Browser- und Geräteinformationen übertragen. Das Modul speichert außerdem Informationen in Ihrem Browser
+        (Local Storage und IndexedDB), z. B. zur Verbindung mit den Servern von Planity.
+      </p>
+      <p>
+        Wenn Sie über das Modul einen Termin buchen oder sich bei „Mein Konto“ anmelden, werden die dort eingegebenen Daten (z. B. Name,
+        E-Mail-Adresse, Telefonnummer, gewählte Leistung und Termin) von Planity verarbeitet, damit der Termin gebucht und verwaltet werden
+        kann.
+      </p>
+      <p>
+        Rechtsgrundlage für das Laden des Moduls und das Speichern von Informationen in Ihrem Browser ist Ihre Einwilligung (Art. 6 Abs. 1
+        lit. a DSGVO, § 25 Abs. 1 TDDDG), die Sie durch den Klick auf „Buchungsmodul laden“ erteilen. Ihre Einwilligung wird nicht
+        gespeichert und gilt nur für den aktuellen Besuch; Sie können sie jederzeit widerrufen, indem Sie die Website schließen oder neu
+        laden – das Modul wird dann nicht mehr geladen. Im Modul gespeicherte Informationen können Sie über die Einstellungen Ihres Browsers
+        löschen. Rechtsgrundlage für die Verarbeitung Ihrer Buchungsdaten ist die Durchführung des Termins (Art. 6 Abs. 1 lit. b DSGVO).
+      </p>
+      <p>
+        Alternativ können Sie Ihren Termin direkt auf der{" "}
+        <a href={site.bookingExternalUrl} target="_blank" rel="noopener noreferrer">
+          Website von Planity
+        </a>{" "}
+        buchen oder uns telefonisch erreichen. Weitere Informationen finden Sie in der{" "}
+        <a href="https://www.planity.com/de-DE/privacy-policy" target="_blank" rel="noopener noreferrer">
+          Datenschutzerklärung von Planity
+        </a>
+        .
       </p>
 
       <h2>6. Externe Links</h2>

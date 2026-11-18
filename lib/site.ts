@@ -21,8 +21,15 @@ export const site = {
     label: "Mo–Fr 09:30–18:00",
     closed: "Sa–So geschlossen",
   },
-  /** Online booking used by the existing site ("Termin Buchen" menu item). */
-  bookingUrl: "https://www.planity.com/de-DE/haarzentrum-mainz-55131",
+  /** Internal booking page with the embedded Planity White Label module (all "Termin buchen" buttons). */
+  bookingUrl: "/termin-buchen/",
+  /** External Planity booking page – fallback if the embedded module cannot be loaded. */
+  bookingExternalUrl: "https://www.planity.com/de-DE/haarzentrum-mainz-55131",
+  /** Planity White Label module (key from Planity's onboarding e-mail; it is public in the page anyway). */
+  planity: {
+    apiKey: "-OugiRWA1GjAkedjsrLN",
+    primaryColor: "#17191c",
+  },
   social: {
     instagram: "https://www.instagram.com/haarzentrummainz/",
     facebook: "https://www.facebook.com/share/1ExUtTQDHo/",

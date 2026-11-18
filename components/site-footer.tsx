@@ -41,7 +41,7 @@ export function SiteFooter() {
             <h2 className="eyebrow m-0 text-silver">Kontakt</h2>
             <a className="dist text-ivory/78" href={site.phoneHref}>{site.phone}</a>
             <a className="dist text-ivory/78" href={`mailto:${site.email}`}>{site.email}</a>
-            <a className="dist text-ivory/78" href={site.bookingUrl} target="_blank" rel="noopener noreferrer">
+            <a className="dist text-ivory/78" href={site.bookingExternalUrl} target="_blank" rel="noopener noreferrer">
               Online-Termin (Planity) ↗
             </a>
             <a className="dist text-ivory/78" href={site.social.instagram} target="_blank" rel="noopener noreferrer">

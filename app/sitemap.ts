@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/haarschnitt/", priority: 0.9 },
     { path: "/preislist/", priority: 0.9 },
     { path: "/contact/", priority: 0.8 },
+    { path: "/termin-buchen/", priority: 0.8 },
     { path: "/about/", priority: 0.7 },
     { path: "/faq/", priority: 0.7 },
     { path: "/impressum/", priority: 0.2 },

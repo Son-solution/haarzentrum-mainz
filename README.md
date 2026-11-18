@@ -45,8 +45,14 @@ cp .env.example .env.local
 Without these variables the form **does not pretend to succeed**: the API returns `503 not_configured`
 and visitors see “Das Online-Formular ist derzeit nicht verfügbar … bitte rufen Sie uns an” with phone and e-mail.
 
-**Online booking** (“Termin buchen” buttons) links to the existing Planity booking page:
-`https://www.planity.com/de-DE/haarzentrum-mainz-55131` (configured in `lib/site.ts`).
+**Online booking** (“Termin buchen” buttons) opens `/termin-buchen/`, which embeds the Planity White Label module
+(`components/planity-booking.tsx`, API key and colour in `lib/site.ts`). 2-click solution: the module is only loaded after
+the visitor clicks “Buchungsmodul laden”; the consent is not stored. The external Planity page
+`https://www.planity.com/de-DE/haarzentrum-mainz-55131` (`site.bookingExternalUrl`) stays as fallback (footer, slow/error state).
+
+Open before go-live – ask Planity (kontakt@planity.com): legal entity/address, AVV (Art. 28 DSGVO) or controller role,
+list of sub-processors and third-country transfers, storage durations. Then complete section 5 of the Datenschutzerklärung
+(see the comment there).
 
 ---
 

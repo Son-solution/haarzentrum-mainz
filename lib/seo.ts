@@ -54,7 +54,7 @@ export function businessJsonLd() {
     ],
     potentialAction: {
       "@type": "ReserveAction",
-      target: site.bookingUrl,
+      target: `${site.url}${site.bookingUrl}`,
       name: "Termin buchen",
     },
   };

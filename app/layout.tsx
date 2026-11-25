@@ -1,4 +1,6 @@
+
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import localFont from "next/font/local";
 import { CookieConsent } from "@/components/cookie-consent";
 import { MotionProvider } from "@/components/motion";
@@ -8,7 +10,7 @@ import { businessJsonLd, jsonLdString } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-/* Self-hosted variable fonts (SIL Open Font License) – no request to Google at runtime. */
+/* Self-hosted variable fonts */
 const bodoni = localFont({
   src: [
     { path: "./fonts/BodoniModa-Variable.woff2", style: "normal", weight: "400 900" },
@@ -16,7 +18,6 @@ const bodoni = localFont({
   ],
   variable: "--font-bodoni",
   display: "swap",
-  // next/font emits fallback names unquoted – names starting with a digit (e.g. "Bodoni 72") would invalidate the whole stack.
   fallback: ["Didot", "Georgia", "serif"],
 });
 
@@ -45,16 +46,47 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="de" className={`${bodoni.variable} ${hanken.variable}`}>
       <body>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdString(businessJsonLd()) }} />
+
+        {/* Google Consent Mode V2 */}
+        <Script
+          id="google-consent-mode"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = window.gtag || function() {
+                window.dataLayer.push(arguments);
+              };
+
+              window.gtag('consent', 'default', {
+                analytics_storage: 'denied',
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+            `,
+          }}
+        />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdString(businessJsonLd()),
+          }}
+        />
+
         <MotionProvider>
           <SiteHeader />
           <main id="inhalt">{children}</main>
           <SiteFooter />
         </MotionProvider>
+
         <CookieConsent />
       </body>
     </html>

@@ -10,7 +10,6 @@ import { businessJsonLd, jsonLdString } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-/* Self-hosted variable fonts */
 const bodoni = localFont({
   src: [
     { path: "./fonts/BodoniModa-Variable.woff2", style: "normal", weight: "400 900" },
@@ -52,27 +51,32 @@ export default function RootLayout({
   return (
     <html lang="de" className={`${bodoni.variable} ${hanken.variable}`}>
       <body>
+        <Script id="google-consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function() {
+              window.dataLayer.push(arguments);
+            };
 
-        {/* Google Consent Mode V2 */}
-        <Script
-          id="google-consent-mode"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              window.gtag = window.gtag || function() {
-                window.dataLayer.push(arguments);
-              };
+            window.gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              ad_personalization: 'denied'
+            });
 
-              window.gtag('consent', 'default', {
-                analytics_storage: 'denied',
-                ad_storage: 'denied',
-                ad_user_data: 'denied',
-                ad_personalization: 'denied'
-              });
-            `,
-          }}
-        />
+            try {
+              if (localStorage.getItem('hzm-consent') === 'granted') {
+                window.gtag('consent', 'update', {
+                  analytics_storage: 'granted',
+                  ad_storage: 'denied',
+                  ad_user_data: 'denied',
+                  ad_personalization: 'denied'
+                });
+              }
+            } catch (e) {}
+          `}
+        </Script>
 
         <script
           type="application/ld+json"
